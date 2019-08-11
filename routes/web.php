@@ -72,6 +72,8 @@ Route::group(['middleware' => 'auth'], function () {
         'parameters' => ['department' => 'department_id']
     ]);
 
+    Route::resource('categorize', 'CategorizeController');
+
 
 });
 

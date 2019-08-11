@@ -6,6 +6,7 @@ use App\Models\Accessory;
 use App\Models\Asset;
 use App\Models\AssetModel;
 use App\Models\Category;
+use App\Models\Categorize;
 use App\Models\Component;
 use App\Models\Consumable;
 use App\Models\CustomField;
@@ -23,6 +24,7 @@ use App\Policies\AccessoryPolicy;
 use App\Policies\AssetModelPolicy;
 use App\Policies\AssetPolicy;
 use App\Policies\CategoryPolicy;
+use App\Policies\CategorizePolicy;
 use App\Policies\ComponentPolicy;
 use App\Policies\ConsumablePolicy;
 use App\Policies\CustomFieldPolicy;
@@ -55,6 +57,7 @@ class AuthServiceProvider extends ServiceProvider
         Asset::class => AssetPolicy::class,
         AssetModel::class => AssetModelPolicy::class,
         Category::class => CategoryPolicy::class,
+        Categorize::class     => CategorizePolicy::class,
         Component::class => ComponentPolicy::class,
         Consumable::class => ConsumablePolicy::class,
         CustomField::class => CustomFieldPolicy::class,
