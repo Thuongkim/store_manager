@@ -72,8 +72,6 @@ Route::group(['middleware' => 'auth'], function () {
         'parameters' => ['department' => 'department_id']
     ]);
 
-    Route::resource('ManhThang', 'ManhthangController');
-    Route::resource('aa', 'ManhthangController');
 });
 
 
