@@ -289,6 +289,34 @@ return array(
 
     ),
 
+    'Customers' => array(
+        array(
+            'permission' => 'customers.view',
+            'label'      => 'View',
+            'note'       => '',
+            'display'    => true,
+        ),
+        array(
+            'permission' => 'customers.create',
+            'label'      => 'Create',
+            'note'       => '',
+            'display'    => true,
+        ),
+        array(
+            'permission' => 'customers.edit',
+            'label'      => 'Edit',
+            'note'       => '',
+            'display'    => true,
+        ),
+        array(
+            'permission' => 'customers.delete',
+            'label'      => 'Delete',
+            'note'       => '',
+            'display'    => true,
+        ),
+
+    ),
+
 
     'Models' => array(
         array(

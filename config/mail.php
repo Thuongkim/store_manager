@@ -44,7 +44,7 @@ return [
     |
     */
 
-    'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
+    'host' => env('MAIL_HOST', 'smtp.gmail.com'),
 
     /*
     |--------------------------------------------------------------------------
@@ -89,7 +89,7 @@ return [
     */
 
     'reply_to' => [
-        'address' => env('MAIL_REPLYTO_ADDR',null),
+        'address' => env('MAIL_REPLYTO_ADDR', null),
         'name' => env('MAIL_REPLYTO_NAME', null)
     ],
 
@@ -117,7 +117,7 @@ return [
     |
     */
 
-    'username' => env('MAIL_USERNAME'),
+    'username' => 'baobinh110297@gmail.com',
 
     /*
     |--------------------------------------------------------------------------
@@ -130,7 +130,7 @@ return [
     |
     */
 
-    'password' => env('MAIL_PASSWORD'),
+    'password' => 'ygubqmdwvqgfxgiv',
 
     /*
     |--------------------------------------------------------------------------
@@ -152,5 +152,4 @@ return [
             resource_path('views/vendor/mail'),
         ],
     ],
-
 ];

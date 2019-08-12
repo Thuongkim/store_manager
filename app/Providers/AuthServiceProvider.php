@@ -19,6 +19,7 @@ use App\Models\Supplier;
 use App\Models\Manufacturer;
 use App\Models\Company;
 use App\Models\User;
+use App\Models\Customer;
 use App\Policies\AccessoryPolicy;
 use App\Policies\AssetModelPolicy;
 use App\Policies\AssetPolicy;
@@ -36,6 +37,7 @@ use App\Policies\SupplierPolicy;
 use App\Policies\UserPolicy;
 use App\Policies\ManufacturerPolicy;
 use App\Policies\CompanyPolicy;
+use App\Policies\CustomerPolicy;
 use Carbon\Carbon;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
@@ -68,6 +70,7 @@ class AuthServiceProvider extends ServiceProvider
         User::class => UserPolicy::class,
         Manufacturer::class => ManufacturerPolicy::class,
         Company::class => CompanyPolicy::class,
+        Customer::class => CustomerPolicy::class,
     ];
 
     /**
@@ -77,7 +80,6 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-
         $this->commands([
             \Laravel\Passport\Console\InstallCommand::class,
             \Laravel\Passport\Console\ClientCommand::class,
