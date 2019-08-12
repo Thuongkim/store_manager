@@ -1,7 +1,8 @@
 <?php
 
     return [
-    'accessories'			=> 'Accessories',
+    'sales'       =>'Sales',
+    'accessories' => 'Accessories',
     'activated'			    => 'Activated',
     'accessory'				=> 'Accessory',
     'accessory_report'		=> 'Accessory Report',
