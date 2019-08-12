@@ -548,6 +548,15 @@
                 </li>
             @endcan
 
+            @can('view', \App\Models\Sale::class)
+                <li{!! (Request::is('sales*') ? ' class="active"' : '') !!}>
+                    <a href="{{ route('sales.index') }}">
+                        <i class="fa fa-users"></i>
+                        <span>{{ trans('general.sales') }}</span>
+                    </a>
+                </li>
+            @endcan
+
             @can('backend.interact')
                 <li class="treeview">
                     <a href="#">
@@ -695,7 +704,7 @@
             </li>
             @endcan
 
-            @can('viewRequestable', \App\Models\Asset::class)
+            @can('view', \App\Models\Asset::class)
             <li{!! (Request::is('account/requestable-assets') ? ' class="active"' : '') !!}>
             <a href="{{ route('requestable-assets') }}">
             <i class="fa fa-laptop"></i>

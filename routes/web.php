@@ -74,7 +74,9 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::resource('categorize', 'CategorizeController');
 
+    Route::resource('sales', 'SalesControlller');
 
+    
 });
 
 

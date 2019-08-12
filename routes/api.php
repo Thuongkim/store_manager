@@ -784,6 +784,22 @@ Route::group(['prefix' => 'v1','namespace' => 'Api', 'middleware' => 'api'], fun
         [ 'as' => 'api.activity.index', 'uses' => 'ReportsController@index' ]
     );
 
+    Route::resource('sales', 'SalesController',
+        [
+            'names' =>
+                [
+                    'index' => 'api.sales.index',
+                    'show' => 'api.sales.show',
+                    'store' => 'api.sales.store',
+                    'update' => 'api.sales.update',
+                    'destroy' => 'api.sales.destroy'
+                ]
+            //     ,
+            // 'except' => ['create', 'edit'],
+            // 'parameters' => ['sale' => 'sale_id']
+        ]
+    ); // sales resource
+
 
 
 });
