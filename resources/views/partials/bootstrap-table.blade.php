@@ -346,7 +346,8 @@
         'companies',
         'depreciations',
         'fieldsets',
-        'groups'
+        'groups',
+        'sales'
     ];
 
     for (var i in formatters) {

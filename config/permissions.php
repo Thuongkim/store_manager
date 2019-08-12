@@ -147,6 +147,33 @@ return array(
         ),
     ),
 
+    'Sales' => array(
+        array(
+            'permission' => 'sales.view',
+            'label'      => 'View ',
+            'note'       => '',
+            'display'    => true,
+        ),
+        array(
+            'permission' => 'sales.create',
+            'label'      => 'Create ',
+            'note'       => '',
+            'display'    => true,
+        ),
+        array(
+            'permission' => 'sales.edit',
+            'label'      => 'Edit ',
+            'note'       => '',
+            'display'    => true,
+        ),
+        array(
+            'permission' => 'sales.delete',
+            'label'      => 'Delete ',
+            'note'       => '',
+            'display'    => true,
+        ),
+    ),
+
     'Consumables' => array(
         array(
             'permission' => 'consumables.view',

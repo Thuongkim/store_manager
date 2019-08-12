@@ -8,6 +8,7 @@
     "php": ">=7.1.2",
     "barryvdh/laravel-cors": "^0.11.3",
     "barryvdh/laravel-debugbar": "^3.2",
+    "barryvdh/laravel-translation-manager": "^0.5.3",
     "doctrine/cache": "^1.8",
     "doctrine/common": "^2.10",
     "doctrine/dbal": "2.9.0",
