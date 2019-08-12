@@ -73,6 +73,8 @@ Route::group(['middleware' => 'auth'], function () {
     ]);
 
     Route::resource('ManhThang', 'ManhthangController');
+
+    Route::resource('ManhThangfff', 'ManhthangControllerfff');
 });
 
 
