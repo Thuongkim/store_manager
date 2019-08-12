@@ -703,6 +703,16 @@
             </a>
             </li>
             @endcan
+
+            @can('view', \App\Models\Categorize::class)
+            <li>
+              <a href="{{ route('categorize.index') }}">
+                <i class="fa fa-list-alt"></i>
+                {{ trans('general.categorize') }}
+              </a>
+            </li>
+            @endcan
+
           </ul>
         </section>
         <!-- /.sidebar -->

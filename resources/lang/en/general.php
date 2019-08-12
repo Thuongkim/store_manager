@@ -1,6 +1,8 @@
 <?php
 
     return [
+    'description'           => 'Description',
+    'categorize'            => 'Categorize',
     'accessories'			=> 'Accessories',
     'activated'			    => 'Activated',
     'accessory'				=> 'Accessory',

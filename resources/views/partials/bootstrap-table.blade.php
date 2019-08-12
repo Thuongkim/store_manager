@@ -341,6 +341,7 @@
         'models',
         'licenses',
         'categories',
+        'categorize',
         'suppliers',
         'departments',
         'companies',
