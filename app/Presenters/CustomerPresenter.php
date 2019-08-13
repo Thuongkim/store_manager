@@ -108,15 +108,6 @@ class CustomerPresenter extends Presenter
                 "title" => trans('general.email'),
                 "visible" => true,
                 "formatter" => "customersEmailFormatter"
-            ],
-            [
-                "field" => "change",
-                "searchable" => false,
-                "sortable" => false,
-                "visible" => true,
-                "title" => trans('general.change'),
-                "visible" => true,
-                "formatter" => "customersInOutFormatter",
             ], 
             [
                 "field" => "change",
