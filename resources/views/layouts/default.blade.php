@@ -714,10 +714,10 @@
             @endcan
 
             @can('view', \App\Models\Categorize::class)
-            <li>
+            <li{!! (Request::is('categorize*') ? ' class="active"' : '') !!}>
               <a href="{{ route('categorize.index') }}">
                 <i class="fa fa-list-alt"></i>
-                {{ trans('general.categorize') }}
+                <span>{{ trans('general.categorize') }}</span>
               </a>
             </li>
             @endcan
