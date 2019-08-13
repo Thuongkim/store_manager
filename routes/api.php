@@ -142,6 +142,33 @@ Route::group(['prefix' => 'v1','namespace' => 'Api', 'middleware' => 'api'], fun
     ); // Companies resource
 
 
+    /* -----Customer API ------*/
+
+    Route::resource('customers', 'CustomersController',
+        ['names' =>
+            [
+                'index' => 'api.customers.index',
+                'show' => 'api.customers.show',
+                'update' => 'api.customers.update',
+                'store' => 'api.customers.store',
+                'destroy' => 'api.customers.destroy'
+            ],
+            // 'except' => ['create', 'edit'],
+            // 'parameters' => ['customer' => 'customer_id']
+        ]
+    ); // Accessories resource
+
+    Route::group(['prefix' => 'accessories'], function () {
+
+        Route::get('{accessory}/checkedout',
+            [
+                'as' => 'api.accessories.checkedout',
+                'uses' => 'AccessoriesController@checkedout'
+            ]
+        );
+    }); // Accessories group
+
+
     /*--- Departments API ---*/
 
     /*--- Suppliers API ---*/

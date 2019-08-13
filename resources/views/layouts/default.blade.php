@@ -231,6 +231,14 @@
                            </a>
                        </li>
                        @endcan
+                       @can('create', \App\Models\Customer::class)
+                       <li {!! (Request::is('customers/create') ? 'class="active"' : '') !!}>
+                           <a href="{{ route('customers.create') }}">
+                               <i class="fa fa-tint fa-fw"></i>
+                               {{ trans('general.customers') }}
+                           </a>
+                       </li>
+                       @endcan
                        @can('create', \App\Models\Component::class)
                        <li {!! (Request::is('components/create') ? 'class="active"' : '') !!}>
                            <a href="{{ route('components.create') }}">
@@ -536,6 +544,14 @@
                   <a href="{{ route('users.index') }}">
                       <i class="fa fa-users"></i>
                       <span>{{ trans('general.people') }}</span>
+                  </a>
+            </li>
+            @endcan
+            @can('view', \App\Models\Customer::class)
+            <li{!! (Request::is('customers*') ? ' class="active"' : '') !!}>
+                  <a href="{{ route('customers.index') }}">                       <!-- Thêm cột Customers -->
+                      <i class="fa fa-dashboard"></i>
+                      <span>{{ trans('general.customers') }}</span>
                   </a>
             </li>
             @endcan
