@@ -313,7 +313,7 @@ return [
         * Custom service provider
         */
         App\Providers\MacroServiceProvider::class,
-        Barryvdh\TranslationManager\ManagerServiceProvider::class,
+        // Barryvdh\TranslationManager\ManagerServiceProvider::class,
 
 
     ],
