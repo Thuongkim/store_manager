@@ -231,6 +231,14 @@
                            </a>
                        </li>
                        @endcan
+                       @can('create', \App\Models\Customer::class)
+                       <li {!! (Request::is('customers/create') ? 'class="active"' : '') !!}>
+                           <a href="{{ route('customers.create') }}">
+                               <i class="fa fa-tint fa-fw"></i>
+                               {{ trans('general.customers') }}
+                           </a>
+                       </li>
+                       @endcan
                        @can('create', \App\Models\Component::class)
                        <li {!! (Request::is('components/create') ? 'class="active"' : '') !!}>
                            <a href="{{ route('components.create') }}">
@@ -539,11 +547,28 @@
                   </a>
             </li>
             @endcan
+            @can('view', \App\Models\Customer::class)
+            <li{!! (Request::is('customers*') ? ' class="active"' : '') !!}>
+                  <a href="{{ route('customers.index') }}">                       <!-- Thêm cột Customers -->
+                      <i class="fa fa-dashboard"></i>
+                      <span>{{ trans('general.customers') }}</span>
+                  </a>
+            </li>
+            @endcan
             @can('import')
                 <li{!! (Request::is('import/*') ? ' class="active"' : '') !!}>
                     <a href="{{ route('imports.index') }}">
                         <i class="fa fa-cloud-download"></i>
                         <span>{{ trans('general.import') }}</span>
+                    </a>
+                </li>
+            @endcan
+
+            @can('view', \App\Models\Sale::class)
+                <li{!! (Request::is('sales*') ? ' class="active"' : '') !!}>
+                    <a href="{{ route('sales.index') }}">
+                        <i class="fa fa-users"></i>
+                        <span>{{ trans('general.sales') }}</span>
                     </a>
                 </li>
             @endcan
@@ -695,7 +720,7 @@
             </li>
             @endcan
 
-            @can('viewRequestable', \App\Models\Asset::class)
+            @can('view', \App\Models\Asset::class)
             <li{!! (Request::is('account/requestable-assets') ? ' class="active"' : '') !!}>
             <a href="{{ route('requestable-assets') }}">
             <i class="fa fa-laptop"></i>
@@ -703,6 +728,16 @@
             </a>
             </li>
             @endcan
+
+            @can('view', \App\Models\Categorize::class)
+            <li{!! (Request::is('categorize*') ? ' class="active"' : '') !!}>
+              <a href="{{ route('categorize.index') }}">
+                <i class="fa fa-list-alt"></i>
+                <span>{{ trans('general.categorize') }}</span>
+              </a>
+            </li>
+            @endcan
+
           </ul>
         </section>
         <!-- /.sidebar -->

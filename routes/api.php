@@ -103,6 +103,20 @@ Route::group(['prefix' => 'v1','namespace' => 'Api', 'middleware' => 'api'], fun
         ]
     ); // Categories resource
 
+    Route::resource('categorize', 'CategorizeController',
+        [
+            'names' =>
+                [
+                    'index' => 'api.categorize.index',
+                    'show' => 'api.categorize.show',
+                    'store' => 'api.categorize.store',
+                    'update' => 'api.categorize.update',
+                    'destroy' => 'api.categorize.destroy'
+                ],
+            'except' => ['edit', 'create']
+        ]
+    );
+
 
     /*--- Companies API ---*/
 
@@ -126,6 +140,33 @@ Route::group(['prefix' => 'v1','namespace' => 'Api', 'middleware' => 'api'], fun
             'parameters' => ['component' => 'component_id']
         ]
     ); // Companies resource
+
+
+    /* -----Customer API ------*/
+
+    Route::resource('customers', 'CustomersController',
+        ['names' =>
+            [
+                'index' => 'api.customers.index',
+                'show' => 'api.customers.show',
+                'update' => 'api.customers.update',
+                'store' => 'api.customers.store',
+                'destroy' => 'api.customers.destroy'
+            ],
+            // 'except' => ['create', 'edit'],
+            // 'parameters' => ['customer' => 'customer_id']
+        ]
+    ); // Accessories resource
+
+    Route::group(['prefix' => 'accessories'], function () {
+
+        Route::get('{accessory}/checkedout',
+            [
+                'as' => 'api.accessories.checkedout',
+                'uses' => 'AccessoriesController@checkedout'
+            ]
+        );
+    }); // Accessories group
 
 
     /*--- Departments API ---*/
@@ -769,6 +810,22 @@ Route::group(['prefix' => 'v1','namespace' => 'Api', 'middleware' => 'api'], fun
         'reports/activity',
         [ 'as' => 'api.activity.index', 'uses' => 'ReportsController@index' ]
     );
+
+    Route::resource('sales', 'SalesController',
+        [
+            'names' =>
+                [
+                    'index' => 'api.sales.index',
+                    'show' => 'api.sales.show',
+                    'store' => 'api.sales.store',
+                    'update' => 'api.sales.update',
+                    'destroy' => 'api.sales.destroy'
+                ]
+            //     ,
+            // 'except' => ['create', 'edit'],
+            // 'parameters' => ['sale' => 'sale_id']
+        ]
+    ); // sales resource
 
 
 

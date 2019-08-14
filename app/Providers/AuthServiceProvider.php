@@ -6,6 +6,7 @@ use App\Models\Accessory;
 use App\Models\Asset;
 use App\Models\AssetModel;
 use App\Models\Category;
+use App\Models\Categorize;
 use App\Models\Component;
 use App\Models\Consumable;
 use App\Models\CustomField;
@@ -19,10 +20,13 @@ use App\Models\Supplier;
 use App\Models\Manufacturer;
 use App\Models\Company;
 use App\Models\User;
+use App\Models\Sale;
+use App\Models\Customer;
 use App\Policies\AccessoryPolicy;
 use App\Policies\AssetModelPolicy;
 use App\Policies\AssetPolicy;
 use App\Policies\CategoryPolicy;
+use App\Policies\CategorizePolicy;
 use App\Policies\ComponentPolicy;
 use App\Policies\ConsumablePolicy;
 use App\Policies\CustomFieldPolicy;
@@ -34,8 +38,10 @@ use App\Policies\LocationPolicy;
 use App\Policies\StatuslabelPolicy;
 use App\Policies\SupplierPolicy;
 use App\Policies\UserPolicy;
+use App\Policies\SalePolicy;
 use App\Policies\ManufacturerPolicy;
 use App\Policies\CompanyPolicy;
+use App\Policies\CustomerPolicy;
 use Carbon\Carbon;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
@@ -55,6 +61,7 @@ class AuthServiceProvider extends ServiceProvider
         Asset::class => AssetPolicy::class,
         AssetModel::class => AssetModelPolicy::class,
         Category::class => CategoryPolicy::class,
+        Categorize::class     => CategorizePolicy::class,
         Component::class => ComponentPolicy::class,
         Consumable::class => ConsumablePolicy::class,
         CustomField::class => CustomFieldPolicy::class,
@@ -68,6 +75,8 @@ class AuthServiceProvider extends ServiceProvider
         User::class => UserPolicy::class,
         Manufacturer::class => ManufacturerPolicy::class,
         Company::class => CompanyPolicy::class,
+        Customer::class => CustomerPolicy::class,
+        Sale::class => SalePolicy::class,
     ];
 
     /**
@@ -77,7 +86,6 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-
         $this->commands([
             \Laravel\Passport\Console\InstallCommand::class,
             \Laravel\Passport\Console\ClientCommand::class,

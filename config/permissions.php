@@ -147,6 +147,33 @@ return array(
         ),
     ),
 
+    'Sales' => array(
+        array(
+            'permission' => 'sales.view',
+            'label'      => 'View ',
+            'note'       => '',
+            'display'    => true,
+        ),
+        array(
+            'permission' => 'sales.create',
+            'label'      => 'Create ',
+            'note'       => '',
+            'display'    => true,
+        ),
+        array(
+            'permission' => 'sales.edit',
+            'label'      => 'Edit ',
+            'note'       => '',
+            'display'    => true,
+        ),
+        array(
+            'permission' => 'sales.delete',
+            'label'      => 'Delete ',
+            'note'       => '',
+            'display'    => true,
+        ),
+    ),
+
     'Consumables' => array(
         array(
             'permission' => 'consumables.view',
@@ -283,6 +310,34 @@ return array(
         array(
             'permission' => 'users.delete',
             'label'      => 'Delete Users',
+            'note'       => '',
+            'display'    => true,
+        ),
+
+    ),
+
+    'Customers' => array(
+        array(
+            'permission' => 'customers.view',
+            'label'      => 'View',
+            'note'       => '',
+            'display'    => true,
+        ),
+        array(
+            'permission' => 'customers.create',
+            'label'      => 'Create',
+            'note'       => '',
+            'display'    => true,
+        ),
+        array(
+            'permission' => 'customers.edit',
+            'label'      => 'Edit',
+            'note'       => '',
+            'display'    => true,
+        ),
+        array(
+            'permission' => 'customers.delete',
+            'label'      => 'Delete',
             'note'       => '',
             'display'    => true,
         ),
@@ -587,6 +642,32 @@ return array(
             'display'    => true,
         ),
 
+    ),
+    'Categorize' => array(
+        array(
+            'permission' => 'categorize.view',
+            'label'      => 'View ',
+            'note'       => '',
+            'display'    => true,
+        ),
+        array(
+            'permission' => 'categorize.create',
+            'label'      => 'Create ',
+            'note'       => '',
+            'display'    => true,
+        ),
+        array(
+            'permission' => 'categorize.edit',
+            'label'      => 'Edit  ',
+            'note'       => '',
+            'display'    => true,
+        ),
+        array(
+            'permission' => 'categorize.delete',
+            'label'      => 'Delete ',
+            'note'       => '',
+            'display'    => true,
+        ),
     ),
 
 

@@ -198,7 +198,8 @@ class Helper
             'asset' => 'Asset',
             'consumable' => 'Consumable',
             'component' => 'Component',
-            'license' => 'License'
+            'license' => 'License',
+            'customer' => 'Customer'
         );
         return $category_types;
     }

@@ -72,7 +72,11 @@ Route::group(['middleware' => 'auth'], function () {
         'parameters' => ['department' => 'department_id']
     ]);
 
+    Route::resource('categorize', 'CategorizeController');
 
+    Route::resource('sales', 'SalesControlller');
+
+    
 });
 
 
@@ -467,5 +471,7 @@ Route::group(['middleware' => 'web'], function () {
 
 Auth::routes();
 
+Route::resource('customers', 'CustomersController');
 
-
+Route::get('/sendemail', 'SendEmailController@index');
+Route::post('/sendemail/send', 'SendEmailController@send');
