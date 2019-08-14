@@ -557,6 +557,15 @@
                 </li>
             @endcan
 
+            @can('view', \App\Models\Appendix::class)
+                <li{!! (Request::is('appendixes*') ? ' class="active"' : '') !!}>
+                    <a href="{{ route('appendixes.index') }}">
+                        <i class="fa fa-newspaper-o"></i>
+                        <span>{{ trans('general.appendixes') }}</span>
+                    </a>
+                </li>
+            @endcan
+
             @can('backend.interact')
                 <li class="treeview">
                     <a href="#">

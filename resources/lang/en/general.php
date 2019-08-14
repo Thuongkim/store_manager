@@ -2,6 +2,7 @@
 
     return [
     'sales'                 => 'Sales',
+    'appendixes'            => 'Appendixes',
     'accessories'			=> 'Accessories',
     'activated'			    => 'Activated',
     'accessory'				=> 'Accessory',

@@ -74,6 +74,8 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::resource('sales', 'SalesControlller');
 
+    Route::resource('appendixes', 'AppendixesController');
+
     
 });
 
