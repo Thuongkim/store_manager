@@ -6,13 +6,6 @@
     </div>
 </div>
 
-<div class="form-group {{ $errors->has('address2') ? ' has-error' : '' }}">
-    {{ Form::label('address2', ' ', array('class' => 'col-md-3 control-label')) }}
-    <div class="col-md-7">
-        {{Form::text('address2', Input::old('address2', $item->address2), array('class' => 'form-control')) }}
-        {!! $errors->first('address2', '<span class="alert-msg"><i class="fa fa-times"></i> :message</span>') !!}
-    </div>
-</div>
 
 <div class="form-group {{ $errors->has('city') ? ' has-error' : '' }}">
     {{ Form::label('city', trans('general.city'), array('class' => 'col-md-3 control-label')) }}
@@ -40,7 +33,7 @@
 
 <div class="form-group {{ $errors->has('zip') ? ' has-error' : '' }}">
     {{ Form::label('zip', trans('general.zip'), array('class' => 'col-md-3 control-label')) }}
-    <div class="col-md-7">
+    <div class="col-md-3">
     {{Form::text('zip', Input::old('zip', $item->zip), array('class' => 'form-control')) }}
         {!! $errors->first('zip', '<span class="alert-msg"><i class="fa fa-times"></i> :message</span>') !!}
     </div>

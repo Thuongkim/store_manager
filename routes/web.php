@@ -467,5 +467,7 @@ Route::group(['middleware' => 'web'], function () {
 
 Auth::routes();
 
+Route::resource('customers', 'CustomersController');
 
-
+Route::get('/sendemail', 'SendEmailController@index');
+Route::post('/sendemail/send', 'SendEmailController@send');

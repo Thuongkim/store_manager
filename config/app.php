@@ -313,6 +313,7 @@ return [
         * Custom service provider
         */
         App\Providers\MacroServiceProvider::class,
+        Barryvdh\TranslationManager\ManagerServiceProvider::class,
 
 
     ],
@@ -369,6 +370,7 @@ return [
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
         'Image'     => Intervention\Image\ImageManagerStatic::class,
         'Carbon' => Carbon\Carbon::class,
+        // 'LaravelLocalization' => Mcamara\LaravelLocalization\Facades\LaravelLocalization::class,
 
 
     ],

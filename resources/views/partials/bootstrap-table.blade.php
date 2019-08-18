@@ -239,6 +239,9 @@
             } else if (value.type == 'consumable') {
                 item_destination = 'consumables';
                 item_icon = 'fa-tint';
+            } else if (value.type == 'customer') {
+                item_destination = 'customers';
+                item_icon = 'fa-tint';
             } else if (value.type == 'license') {
                 item_destination = 'licenses';
                 item_icon = 'fa-floppy-o';
@@ -346,7 +349,8 @@
         'companies',
         'depreciations',
         'fieldsets',
-        'groups'
+        'groups',
+        'customers'
     ];
 
     for (var i in formatters) {
@@ -425,6 +429,83 @@
         }
     }
 
+    function customersPhoneFormatter(value) {
+        if (value) {
+            return  '<a href="tel:' + value + '">' + value + '</a>';
+        }
+    }
+
+    function addressFormatter(value) {
+        if (value) {
+            return  '<a href="#">' + value + '</a>';
+        }
+    }
+
+    function customersAddressFormatter(value) {
+        if (value) {
+            return  '<a href="#">' + value + '</a>';
+        }
+    }
+
+    function cityFormatter(value) {
+        if (value) {
+            return  '<a href="#">' + value + '</a>';
+        }
+    }
+
+    function customersCityFormatter(value) {
+        if (value) {
+            return  '<a href="#">' + value + '</a>';
+        }
+    }
+
+    function stateFormatter(value) {
+        if (value) {
+            return  '<a href="#">' + value + '</a>';
+        }
+    }
+
+    function customersStateFormatter(value) {
+        if (value) {
+            return  '<a href="#">' + value + '</a>';
+        }
+    }
+
+    function countryFormatter(value) {
+        if (value) {
+            return  '<a href="#">' + value + '</a>';
+        }
+    }
+
+    function customersCountryFormatter(value) {
+        if (value) {
+            return  '<a href="#">' + value + '</a>';
+        }
+    }
+
+    function zipFormatter(value) {
+        if (value) {
+            return  '<a href="#">' + value + '</a>';
+        }
+    }
+
+    function customersZipFormatter(value) {
+        if (value) {
+            return  '<a href="#">' + value + '</a>';
+        }
+    }
+
+    function taxcodeFormatter(value) {
+        if (value) {
+            return  '<a href="#">' + value + '</a>';
+        }
+    }
+
+    function customersTaxcodeFormatter(value) {
+        if (value) {
+            return  '<a href="#">' + value + '</a>';
+        }
+    }
 
     function deployedLocationFormatter(row, value) {
         if ((row) && (row!=undefined)) {
@@ -475,6 +556,12 @@
     }
 
     function emailFormatter(value) {
+        if (value) {
+            return '<a href="mailto:' + value + '"> ' + value + '</a>';
+        }
+    }
+
+    function customersEmailFormatter(value) {
         if (value) {
             return '<a href="mailto:' + value + '"> ' + value + '</a>';
         }
@@ -574,8 +661,5 @@
             });
         });
     });
-
-
-
-
+    
 </script>

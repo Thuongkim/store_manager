@@ -9,7 +9,7 @@
 */
 
 
-return [
+ return [
 
     /*
     |--------------------------------------------------------------------------
@@ -57,6 +57,12 @@ return [
 
     'google' => [
         'maps_api_key' => env('GOOGLE_MAPS_API')
+    ],
+
+    'nexmo' => [
+        'key' => 'f563b253',
+        'secret' => 'CcQPrwud7WvTYRcI',
+        'sms_from' => 'The One Above All',
     ],
 
 
