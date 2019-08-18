@@ -49,6 +49,7 @@ class CustomersController extends Controller
      */
     public function store(Request $request)
     {
+        date_default_timezone_set('Asia/Ho_Chi_Minh');
         $this->authorize(Customer::class);
         
         $customer = new Customer();
@@ -120,6 +121,7 @@ class CustomersController extends Controller
      */
     public function update(Request $request, $customerId = null)
     {
+        date_default_timezone_set('Asia/Ho_Chi_Minh');
         if (is_null($customer = Customer::find($customerId))) {
             return redirect()->route('customers.index')->with('error', trans('admin/customers/message.does_not_exist'));
         }
