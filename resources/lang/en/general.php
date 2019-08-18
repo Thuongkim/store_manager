@@ -1,6 +1,7 @@
 <?php
 
     return [
+    'duration'              => 'Duration (days)',
     'warning'               => 'Warning Expired Date',
     'info'                  => 'Infomation',
     'customers'             => 'Customer',

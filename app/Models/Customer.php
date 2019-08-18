@@ -33,7 +33,7 @@ class Customer extends Model
      * 
      * @var array
      */
-    protected $searchableAttributes = ['name', 'phone', 'address', 'city', 'state', 'country', 'zip', 'taxcode', 'email'];
+    protected $searchableAttributes = ['name', 'phone', 'duration', 'address', 'city', 'state', 'country', 'zip', 'taxcode', 'email'];
 
     /**
      * The relations and their attributes that should be included when searching the model.
@@ -61,6 +61,7 @@ class Customer extends Model
     public $rules = array(
         'name'              => 'required|min:3|max:255',
         'phone'             => 'required|min:3|max:255',
+        'duration'          => 'required|min:1|max:255|integer',
         'address'           => 'required|min:3|max:255',
         'city'              => 'required|min:3|max:255',
         'state'             => 'required|min:3|max:255',
@@ -90,6 +91,7 @@ class Customer extends Model
         'id',
         'name',
         'phone',
+        'duration',
         'address',
         'city',
         'state',

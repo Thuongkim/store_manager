@@ -44,7 +44,16 @@ class CustomerPresenter extends Presenter
                 "switchable" => true,
                 "title" => trans('general.phone'),
                 "visible" => true,
-                "formatter"    => "customersPhoneFormatter",
+                "formatter"    => "customersLinkFormatter",
+            ],
+            [
+                "field" => "duration",
+                "searchable" => true,
+                "sortable" => true,
+                "switchable" => true,
+                "title" => trans('general.duration'),
+                "visible" => true,
+                "formatter"    => "customersLinkFormatter",
             ],
             [
                 "field" => "address",
@@ -53,7 +62,7 @@ class CustomerPresenter extends Presenter
                 "switchable" => true,
                 "title" => trans('general.address'),
                 "visible" => true,
-                "formatter"    => "customersAddressFormatter",
+                "formatter"    => "customersLinkFormatter",
             ],
             [
                 "field" => "city",
@@ -62,7 +71,7 @@ class CustomerPresenter extends Presenter
                 "switchable" => true,
                 "title" => trans('general.city'),
                 "visible" => true,
-                "formatter"    => "customersCityFormatter",
+                "formatter"    => "customersLinkFormatter",
             ],
             [
                 "field" => "state",
@@ -71,7 +80,7 @@ class CustomerPresenter extends Presenter
                 "switchable" => true,
                 "title" => trans('general.state'),
                 "visible" => true,
-                "formatter"    => "customersStateFormatter",
+                "formatter"    => "customersLinkFormatter",
             ],
             [
                 "field" => "country",
@@ -80,7 +89,7 @@ class CustomerPresenter extends Presenter
                 "switchable" => true,
                 "title" => trans('general.country'),
                 "visible" => true,
-                "formatter"    => "customersCountryFormatter",
+                "formatter"    => "customersLinkFormatter",
             ],
             [
                 "field" => "zip",
@@ -89,7 +98,7 @@ class CustomerPresenter extends Presenter
                 "switchable" => true,
                 "title" => trans('general.zip'),
                 "visible" => true,
-                "formatter"    => "customersZipFormatter",
+                "formatter"    => "customersLinkFormatter",
             ],
             [
                 "field" => "taxcode",
@@ -98,7 +107,7 @@ class CustomerPresenter extends Presenter
                 "switchable" => true,
                 "title" => trans('general.taxcode'),
                 "visible" => true,
-                "formatter"    => "customersTaxcodeFormatter",
+                "formatter"    => "customersLinkFormatter",
             ],
             [
                 "field" => "email",
@@ -107,7 +116,7 @@ class CustomerPresenter extends Presenter
                 "switchable" => true,
                 "title" => trans('general.email'),
                 "visible" => true,
-                "formatter" => "customersEmailFormatter"
+                "formatter" => "customersLinkFormatter"
             ], 
             [
                 "field" => "change",

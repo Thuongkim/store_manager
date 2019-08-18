@@ -1,6 +1,7 @@
 <?php
 
 return array(
+	'duration' => 'Duration (days)',
     'customer_name' => 'Customer Name',
     'phone_number' => 'Phone Number',
     'create' => 'Create Customer',
