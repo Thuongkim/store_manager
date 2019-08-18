@@ -17,6 +17,7 @@ class CreateCustomersTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('phone');
+            $table->string('duration');
             $table->string('address');
             $table->string('city');
             $table->string('state');
@@ -24,7 +25,7 @@ class CreateCustomersTable extends Migration
             $table->string('zip');
             $table->string('taxcode');
             $table->string('email');
-            $table->timestamps();
+            $table->timestampsTz('Asia/Ho_Chi_Minh');
         });
     }
 
