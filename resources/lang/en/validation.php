@@ -90,6 +90,7 @@ return array(
     'uploaded'             => 'The :attribute failed to upload.',
     'url'                  => 'The :attribute format is invalid.',
     "unique_undeleted"     => "The :attribute must be unique.",
+    'lt'                   => 'The :attribute must be smaller than duration.',
 
     /*
     |--------------------------------------------------------------------------

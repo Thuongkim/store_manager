@@ -1,8 +1,15 @@
 <?php
 
     return [
-    'duration'              => 'Duration (days)',
+    'view_calendar'         => 'View Calendar',
+    'select_customer'       => 'Select a Customer',
+    'hour_warning'          => 'Hour Warning (hours)',
+    'warning_before'        => 'Warning Before (days)',
+    'created_customer_at'   => 'Created Customer At',
+    'duration'              => 'Duration',
+    'durations'             => 'Duration (days)',
     'warning'               => 'Warning Expired Date',
+    'warnings'               => 'Warning Expired Date',
     'info'                  => 'Infomation',
     'customers'             => 'Customer',
     'phone'                 => 'Phone',
