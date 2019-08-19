@@ -20,6 +20,7 @@ use App\Models\Manufacturer;
 use App\Models\Company;
 use App\Models\User;
 use App\Models\Customer;
+use App\Models\Warning;
 use App\Policies\AccessoryPolicy;
 use App\Policies\AssetModelPolicy;
 use App\Policies\AssetPolicy;
@@ -38,6 +39,7 @@ use App\Policies\UserPolicy;
 use App\Policies\ManufacturerPolicy;
 use App\Policies\CompanyPolicy;
 use App\Policies\CustomerPolicy;
+use App\Policies\WarningPolicy;
 use Carbon\Carbon;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
@@ -71,6 +73,7 @@ class AuthServiceProvider extends ServiceProvider
         Manufacturer::class => ManufacturerPolicy::class,
         Company::class => CompanyPolicy::class,
         Customer::class => CustomerPolicy::class,
+        Warning::class => WarningPolicy::class,
     ];
 
     /**

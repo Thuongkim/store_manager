@@ -51,7 +51,7 @@ class WarningsController extends Controller
     public function store(Request $request)
     {
         date_default_timezone_set('Asia/Ho_Chi_Minh');
-    	$this->authorize(Warning::class);
+        $this->authorize(Warning::class);
 
         // create a new model instance
         $warning = new Warning();
@@ -89,7 +89,11 @@ class WarningsController extends Controller
 
     public function show($warningId = null)
     {
-    	return redirect()->route('warnings.edit', $warningId);
+        $warning = Warning::find($warningId);
+        if (isset($warning->id)) {
+            $this->authorize('view', $warning);
+            return redirect()->route('warnings.edit', $warningId);
+        }
     }
 
     /**
@@ -121,7 +125,7 @@ class WarningsController extends Controller
     public function update(Request $request, $warningId = null)
     {
         date_default_timezone_set('Asia/Ho_Chi_Minh');
-    	if (is_null($warning = Warning::find($warningId))) {
+        if (is_null($warning = Warning::find($warningId))) {
             return redirect()->route('warnings.index')->with('error', trans('admin/warnings/message.does_not_exist'));
         }
 
@@ -141,7 +145,7 @@ class WarningsController extends Controller
             return redirect()->route('warnings.index')->with('success', trans('admin/warnings/message.update.success'));
         }
         return redirect()->back()->withInput()->withErrors($warning->getErrors());
- }
+    }
 
     /**
      * Remove the specified Permission from storage.

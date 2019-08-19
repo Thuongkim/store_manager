@@ -21,6 +21,7 @@
     'accessory'             => 'Accessory',
     'accessory_report'      => 'Accessory Report',
     'actions'               => 'Action',
+    'action'               => 'Action',
     'activity_report'       => 'Activity Report',
     'address'               => 'Address',
     'admin'                 => 'Admin',
