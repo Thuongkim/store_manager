@@ -4,7 +4,7 @@
 'updateText' => trans('admin/customers/general.update'),
 'formAction' => ($item) ? route('customers.update', ['customer' => $item->id]) : route('customers.store'),
 ])
-
+<!-- Item are Customer Object - Lock at the create method of CustomersController  -->
 {{-- Page content --}}
 @section('inputFields')
 

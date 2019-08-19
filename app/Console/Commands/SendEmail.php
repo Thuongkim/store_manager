@@ -48,11 +48,8 @@ class SendEmail extends Command
 
         date_default_timezone_set('Asia/Ho_Chi_Minh');
         $now = Carbon::now();
-
         $warning = Warning::find(\Session::get('id'));
-
-        $customers = DB::table('warnings')->where('created_customer_at', '<', $now->subDays($warning->duration)->addDays($warning->warning_before))->orWhere('duration', '>', $warning->duration)->pluck('name');
-        
+        $customers = DB::table('warnings')->where('created_customer_at', '<=', $now->subDays($warning->duration)->addDays($warning->warning_before))->pluck('name');
         foreach($customers as $customer)
         {
             if($warning->name == $customer)
@@ -62,9 +59,10 @@ class SendEmail extends Command
         }
         if(isset($data))
         {
+            $time_remaining = Carbon::parse($warning->created_customer_at)->addDays($warning->duration)->diffInDays(Carbon::now());
+            $data = array($warning->name, $time_remaining);  
             $email = new SendMail($data);
             Mail::to('gnoht1111@gmail.com')->send($email);
-            return back()->with('success', 'Thanks for contacting us!');
         }
 
         //Place warning condition here

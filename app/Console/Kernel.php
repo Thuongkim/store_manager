@@ -65,7 +65,6 @@ class Kernel extends ConsoleKernel
             {
                 \Session::put('id', $warning->id);
             } 
-
         }
     }
 

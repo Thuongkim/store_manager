@@ -4,7 +4,7 @@
 'updateText' => trans('admin/warnings/general.update'),
 'formAction' => ($item) ? route('warnings.update', ['warning' => $item->id]) : route('warnings.store'),
 ])
-<!-- Item là một đối tượng của Warning - Xem hàm create của WarningsController  -->
+<!-- Item are Warning Object - Lock at the create method of WarningsController  -->
 {{-- Page content --}}
 @section('inputFields')
 
