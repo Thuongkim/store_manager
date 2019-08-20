@@ -34,7 +34,7 @@ class Warning extends Model
 
     use Searchable;
 
-    protected $searchableAttributes = ['id_customer', 'name', 'created_customer_at', 'duration', 'warning_before', 'hour_warning'];
+    protected $searchableAttributes = ['id_customer', 'name', 'created_customer_at', 'status', 'duration', 'warning_before', 'hour_warning'];
 
     protected $searchableRelations = [
         'customer'     => ['name']
@@ -51,6 +51,7 @@ class Warning extends Model
         'id_customer'           => 'required|unique|exists:customers,id',
         'name'                  => 'required|min:1|max:255',
         'created_customer_at'   => 'max:255',
+        'status'                => 'max:255',
         'duration'              => 'required|integer',
         'warning_before'        => 'required|integer|lt:duration',
         'hour_warning'          => 'required'
@@ -77,6 +78,7 @@ class Warning extends Model
         'id_customer',
         'name',
         'created_customer_at',
+        'status',
         'duration',
         'warning_before',
         'hour_warning'

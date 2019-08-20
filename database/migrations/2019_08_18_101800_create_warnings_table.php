@@ -18,6 +18,7 @@ class CreateWarningsTable extends Migration
             $table->unsignedInteger('id_customer');
             $table->string('name');
             $table->string('created_customer_at');
+            $table->string('status');
             $table->integer('duration');
             $table->integer('warning_before');
             $table->string('hour_warning');

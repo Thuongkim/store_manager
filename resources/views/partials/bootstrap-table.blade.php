@@ -493,6 +493,15 @@
         }
     }
 
+    function statusFormatter(value) {
+        if (value == "Active") {
+            return  '<label style="font-size: 13px; cursor: pointer; border-radius: 15px !important" class="label label-info">' + value + '</label> <i style="color: #02B301; font-size: 20px;" class="fa fa-check-circle" ></i>';
+        }
+        else{
+            return  '<label style="font-size: 13px; cursor: pointer; border-radius: 15px !important" class="label label-default">' + value + '</label> <i style="color: red; font-size: 20px;" class="fa fa-exclamation-circle" ></i>';
+        }
+    }
+
     function customersZipFormatter(value) {
         if (value) {
             return  '<a href="#">' + value + '</a>';

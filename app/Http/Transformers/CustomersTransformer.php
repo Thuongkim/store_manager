@@ -24,7 +24,6 @@ class CustomersTransformer
             'id' => $customer->id,
             'name' => e($customer->name),
             'phone' => ($customer->phone) ? e($customer->phone) : null,
-            'duration' => ($customer->duration) ? e($customer->duration) : null,
             'address' => ($customer->address) ? e($customer->address) : null,
             'city' => ($customer->city) ? e($customer->city) : null,
             'state' => ($customer->state) ? e($customer->state) : null,

@@ -44,7 +44,16 @@ class WarningPresenter extends Presenter
                 "switchable" => true,
                 "title" => trans('general.created_customer_at'),
                 "visible" => true,
-                "formatter"    => "warningsLinkFormatter",
+                "formatter"   => "warningsLinkFormatter",
+            ],
+            [
+                "field" => "status",
+                "searchable" => true,
+                "sortable" => true,
+                "switchable" => true,
+                "title" => trans('general.status'),
+                "visible" => true,
+                "formatter"    => "statusFormatter",
             ],
             [
                 "field" => "duration",

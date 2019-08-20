@@ -56,7 +56,6 @@ class CustomersController extends Controller
 
         $customer->name                    = request('name');
         $customer->phone                   = request('phone');
-        $customer->duration                = request('duration');
         $customer->address                 = request('address');
         $customer->city                    = request('city');
         $customer->state                   = request('state');
@@ -132,7 +131,6 @@ class CustomersController extends Controller
         // Update the accessory data
         $customer->name                    = request('name');
         $customer->phone                   = request('phone');
-        $customer->duration                = request('duration');
         $customer->address                 = request('address');
         $customer->city                    = request('city');
         $customer->state                   = request('state');

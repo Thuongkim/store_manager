@@ -48,7 +48,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-
+        //When is the warning - what time warning?
         $schedule->command('snipeit:inventory-alerts')->daily();
         $schedule->command('snipeit:expiring-alerts')->daily();
         $schedule->command('snipeit:expected-checkin')->daily();
@@ -67,7 +67,7 @@ class Kernel extends ConsoleKernel
             } 
         }
     }
-
+    //When is the warning - what time warning?
     protected function commands()
     {
         require base_path('routes/console.php');

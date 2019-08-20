@@ -18,7 +18,6 @@ class CreateCustomersTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('phone');
-            $table->string('duration');
             $table->string('address');
             $table->string('city');
             $table->string('state');

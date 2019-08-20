@@ -47,15 +47,6 @@ class CustomerPresenter extends Presenter
                 "formatter"    => "customersLinkFormatter",
             ],
             [
-                "field" => "duration",
-                "searchable" => true,
-                "sortable" => true,
-                "switchable" => true,
-                "title" => trans('general.duration'),
-                "visible" => true,
-                "formatter"    => "customersLinkFormatter",
-            ],
-            [
                 "field" => "address",
                 "searchable" => true,
                 "sortable" => true,

@@ -31,5 +31,5 @@ class SendMail extends Mailable
         return $this->from('baobinh110297@gmail.com', 'Snipe IT By Thông')->subject('Cảnh báo hết hạn hợp đồng')->view('dynamic_email_template')->with('data', $this->data);
     }
     //Setting information of sender
-    //Address - Name - Caption - Template you want sent
+    //Address - Name - Caption - Mail Template you want sent
 }

@@ -1,6 +1,7 @@
 <?php
 
     return [
+    'status'                => 'Status',
     'view_calendar'         => 'View Calendar',
     'select_customer'       => 'Select a Customer',
     'hour_warning'          => 'Hour Warning (hours)',

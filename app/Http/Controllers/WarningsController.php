@@ -61,6 +61,7 @@ class WarningsController extends Controller
         isset($customer)?($warning->name = $customer->name):($warning->name = null);
         $warning->id_customer             = request('id_customer');
         isset($customer)?($warning->created_customer_at = $customer->created_at):($warning->created_customer_at = null);
+        Carbon::now() >= Carbon::parse($warning->created_customer_at)->addDays(request('duration')) ? $warning->status = "Expired" : $warning->status = "Active";
         $warning->duration                = request('duration');
         $warning->warning_before          = request('warning_before');
         $warning->hour_warning            = request('hour_warning');
@@ -136,6 +137,7 @@ class WarningsController extends Controller
         isset($customer)?($warning->name = $customer->name):($warning->name = null);
         $warning->id_customer             = request('id_customer');
         isset($customer)?($warning->created_customer_at = $customer->created_at):($warning->created_customer_at = null);
+        Carbon::now() >= Carbon::parse($warning->created_customer_at)->addDays(request('duration')) ? $warning->status = "Expired" : $warning->status = "Active";
         $warning->duration                = request('duration');
         $warning->warning_before          = request('warning_before');
         $warning->hour_warning            = request('hour_warning');

@@ -1,6 +1,7 @@
 <?php
 
 return array(
+    'status' => 'Status',
     'view_calendar' => 'View Calendar',
     'hour_warning' => 'Warning Hour (hour)',
     'warning_before' => 'Warning Before (days)',

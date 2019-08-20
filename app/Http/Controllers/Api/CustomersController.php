@@ -45,7 +45,7 @@ class CustomersController extends Controller
 
         $offset = (($customers) && (request('offset') > $customers->count())) ? 0 : request('offset', 0);
         $limit = request('limit', 100);
-        $allowed_columns = ['id','name','phone','duration','address','city','state','country','zip','taxcode','email'];
+        $allowed_columns = ['id','name','phone','address','city','state','country','zip','taxcode','email'];
         $order = $request->input('order') === 'asc' ? 'asc' : 'desc';
         $sort = in_array($request->input('sort'), $allowed_columns) ? $request->input('sort') : 'created_at';
 

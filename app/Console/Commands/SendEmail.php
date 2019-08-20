@@ -59,8 +59,9 @@ class SendEmail extends Command
         }
         if(isset($data))
         {
+            Carbon::now() >= Carbon::parse($warning->created_customer_at)->addDays($warning->duration) ? $expired = true : $expired = false;
             $time_remaining = Carbon::parse($warning->created_customer_at)->addDays($warning->duration)->diffInDays(Carbon::now());
-            $data = array($warning->name, $time_remaining);  
+            $data = array($warning->name, $time_remaining, $expired);  
             $email = new SendMail($data);
             Mail::to('gnoht1111@gmail.com')->send($email);
         }
