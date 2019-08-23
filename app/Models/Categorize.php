@@ -25,4 +25,10 @@ class Categorize extends Model
 	protected $injectUniqueIdentifier = true;
     use ValidatingTrait;
     use UniqueUndeletedTrait;
+
+    public function contract()
+    {
+        return $this->hasMany('\App\Models\Contract');
+    }
+
 }

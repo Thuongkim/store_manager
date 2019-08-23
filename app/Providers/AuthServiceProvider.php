@@ -22,6 +22,7 @@ use App\Models\Company;
 use App\Models\User;
 use App\Models\Sale;
 use App\Models\Customer;
+use App\Models\Contract;
 use App\Policies\AccessoryPolicy;
 use App\Policies\AssetModelPolicy;
 use App\Policies\AssetPolicy;
@@ -42,6 +43,7 @@ use App\Policies\SalePolicy;
 use App\Policies\ManufacturerPolicy;
 use App\Policies\CompanyPolicy;
 use App\Policies\CustomerPolicy;
+use App\Policies\ContractPolicy;
 use Carbon\Carbon;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
@@ -77,6 +79,7 @@ class AuthServiceProvider extends ServiceProvider
         Company::class => CompanyPolicy::class,
         Customer::class => CustomerPolicy::class,
         Sale::class => SalePolicy::class,
+        Contract::class => ContractPolicy::class,
     ];
 
     /**

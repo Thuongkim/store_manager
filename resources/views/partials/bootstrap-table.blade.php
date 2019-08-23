@@ -345,6 +345,7 @@
         'licenses',
         'categories',
         'categorize',
+        'contract',
         'suppliers',
         'departments',
         'companies',
@@ -612,6 +613,18 @@
    function imageFormatter(value) {
         if (value) {
             return '<a href="' + value + '" data-toggle="lightbox" data-type="image"><img src="' + value + '" style="max-height: {{ $snipeSettings->thumbnail_max_h }}px; width: auto;" class="img-responsive"></a>';
+        }
+    }
+
+    function imagesFormatter(value) {
+
+        if (value) {
+            var length = value.length;
+                var images = '<a href="/images' + value[0] + '" data-toggle="lightbox" data-gallery="gallery" class="col-md-4"><img src="/images' + value[0] + '" style="height: 40px; width: 50px;display: inline;" class="img-fluid rounded"></a>';;
+                for(i = 1; i < length; i++) {
+                    images += '<a href="/images' + value[i] + '" data-toggle="lightbox" data-gallery="gallery" class="col-md-4"><img src="/images' + value[i] + '" style="height: 40px; width: 50px;display: none;" class="img-fluid rounded"></a>';
+                }
+                return images;
         }
     }
 

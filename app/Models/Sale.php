@@ -65,4 +65,9 @@ class Sale extends Model
         'gender' => 'required'
     );
 
+    public function contract()
+    {
+        return $this->hasOne('\App\Models\Contract');
+    }
+
 }
