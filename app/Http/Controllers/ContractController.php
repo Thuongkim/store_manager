@@ -97,6 +97,7 @@ class ContractController extends Controller
      */
     public function edit($id)
     {
+        $this->authorize(Contract::class);
         if ($item = Contract::find($id)) {
             $this->authorize($item);
             $id = Auth::user()->id;
@@ -123,6 +124,7 @@ class ContractController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->authorize('edit', Contract::class);
         if (is_null($contract = Contract::find($id))) {
             return redirect()->route('contracts.index');
         }

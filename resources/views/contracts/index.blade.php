@@ -46,13 +46,15 @@ Contract
 @stop
 
 
-
 @section('zoom-img')
 <script>
-  $(document).on("click", '[data-toggle="lightbox"]', function(event) {
-    event.preventDefault();
-    $(this).ekkoLightbox();
+  $(document).ready(function() {
+  $('[data-fancybox]').each(function(){
+      $(this).attr('data-caption', $(this).attr('title'));
   });
+
+  $('[data-fancybox]').fancybox();
+});
 
 </script>
 @stop

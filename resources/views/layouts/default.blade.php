@@ -34,7 +34,7 @@
 
   <link rel="stylesheet" href="{{ asset('js/dropzone/dropzone.css') }}">
   <!-- Zoom Images -->
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css"> 
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.2/jquery.fancybox.min.css">
   
 
 
@@ -748,14 +748,14 @@
 @endcan
 
 
-{{-- @can('view', \App\Models\Categorize::class) --}}
+@can('view', \App\Models\Contract::class)
 <li{!! (Request::is('contract*') ? ' class="active"' : '') !!}>
 <a href="{{ route('contract.index') }}">
   <i class="fa fa-list-alt"></i>
   <span>{{ trans('admin/contract/general.contract') }}</span>
 </a>
 </li>
-{{-- @endcan --}}
+@endcan
 
 </ul>
 </section>
@@ -880,9 +880,9 @@
 <script src="{{ url(mix('js/dist/all.js')) }}" nonce="{{ csrf_token() }}"></script>
 <!-- IMG -->
 <script type="text/javascript" src="{{ asset('js/dropzone/dropzone.js') }}"></script>
-{{-- <script type="text/javascript" src="{{ asset('js/dropzone/dropzone-config.js') }}"></script> --}}
 @yield('dropzone-img')
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.min.js"></script>
+<!-- Zoom IMG -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.2/jquery.fancybox.min.js"></script>
 @yield('zoom-img')
 
 @section('moar_scripts')

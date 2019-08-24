@@ -616,16 +616,17 @@
         }
     }
 
-    function imagesFormatter(value) {
-
+    function imagesFormatter(value, row) {
         if (value) {
             var length = value.length;
-                var images = '<a href="/images' + value[0] + '" data-toggle="lightbox" data-gallery="gallery" class="col-md-4"><img src="/images' + value[0] + '" style="height: 40px; width: 50px;display: inline;" class="img-fluid rounded"></a>';;
+                var images = '<a href="/images' + value[0] + '" data-fancybox="mygallery_'+row.id+'" ><img src="/images' + value[0] + '" style="height: 40px; width: 50px;display: inline;"></a>';;
                 for(i = 1; i < length; i++) {
-                    images += '<a href="/images' + value[i] + '" data-toggle="lightbox" data-gallery="gallery" class="col-md-4"><img src="/images' + value[i] + '" style="height: 40px; width: 50px;display: none;" class="img-fluid rounded"></a>';
+                 
+                    images += '<a href="/images' + value[i] + '" data-fancybox="mygallery_'+row.id+'" ><img src="/images' + value[i] + '" style="height: 40px; width: 50px;display: none;" ></a>';
                 }
                 return images;
         }
+        
     }
 
     function fileUploadFormatter(value) {
