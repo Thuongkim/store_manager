@@ -10,7 +10,6 @@ use App\Http\Transformers\CustomersTransformer;
 use App\Http\Transformers\SelectlistTransformer;
 use App\Helpers\Helper;
 use DB;
-use App\Http\Transformers\SelectlistTransformer;
 
 class CustomersController extends Controller
 {
