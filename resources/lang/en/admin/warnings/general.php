@@ -1,6 +1,7 @@
 <?php
 
 return array(
+    'expired_at' => 'Expired At',
     'status' => 'Status',
     'view_calendar' => 'View Calendar',
     'hour_warning' => 'Warning Hour (hour)',

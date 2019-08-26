@@ -7,6 +7,7 @@
     'hour_warning'          => 'Hour Warning (hours)',
     'warning_before'        => 'Warning Before (days)',
     'created_customer_at'   => 'Created Customer At',
+    'expired_at'            => 'Expired At',
     'duration'              => 'Duration',
     'durations'             => 'Duration (days)',
     'warning'               => 'Warning Expired Date',

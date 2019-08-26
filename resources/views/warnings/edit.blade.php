@@ -10,6 +10,7 @@
 
 @include ('partials.forms.edit.customer-select', ['translated_name' => trans('admin/warnings/general.warning_name'), 'fieldname' => 'id_customer'])
 @include ('partials.forms.edit.created-customer', ['translated_name' => trans('admin/warnings/general.created_customer')])
+@include ('partials.forms.edit.expired-at', ['translated_name' => trans('admin/warnings/general.expired_at')])
 @include ('partials.forms.edit.mystatus', ['translated_name' => trans('admin/warnings/general.status')])
 @include ('partials.forms.edit.duration', ['translated_name' => trans('admin/warnings/general.duration')])
 @include ('partials.forms.edit.warning-before', ['translated_name' => trans('admin/warnings/general.warning_before')])

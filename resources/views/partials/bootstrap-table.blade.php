@@ -493,12 +493,12 @@
         }
     }
 
-    function statusFormatter(value) {
+    function statusFormatter(value, row) {
         if (value == "Active") {
-            return  '<label style="font-size: 13px; cursor: pointer; border-radius: 15px !important" class="label label-info">' + value + '</label> <i style="color: #02B301; font-size: 20px;" class="fa fa-check-circle" ></i>';
+            return  '<p><a href="/warnings/' + row.id + '/edit' + '">' + '<label style="font-size: 13px; cursor: pointer; border-radius: 15px !important" class="label label-info">' + value + '</label> <i style="color: #02B301; font-size: 20px;" class="fa fa-check-circle" ></i>' + '</a></p>';
         }
         else{
-            return  '<label style="font-size: 13px; cursor: pointer; border-radius: 15px !important" class="label label-default">' + value + '</label> <i style="color: red; font-size: 20px;" class="fa fa-exclamation-circle" ></i>';
+            return  '<p><a href="/warnings/' + row.id + '/edit' + '">' + '<label style="font-size: 13px;cursor: pointer; border-radius: 15px !important" class="label label-default">' + value + '</label> <i style="color: red; font-size: 20px;" class="fa fa-exclamation-circle" ></i>' + '</a></p>';
         }
     }
 

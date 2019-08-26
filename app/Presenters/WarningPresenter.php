@@ -27,7 +27,7 @@ class WarningPresenter extends Presenter
                 "sortable" => true,
                 "switchable" => true,
                 "title" => trans('general.id'),
-                "visible" => false
+                "visible" => true
             ], 
             [
                 "field" => "name",
@@ -43,6 +43,15 @@ class WarningPresenter extends Presenter
                 "sortable" => true,
                 "switchable" => true,
                 "title" => trans('general.created_customer_at'),
+                "visible" => true,
+                "formatter"   => "warningsLinkFormatter",
+            ],
+            [
+                "field" => "expired_at",
+                "searchable" => true,
+                "sortable" => true,
+                "switchable" => true,
+                "title" => trans('general.expired_at'),
                 "visible" => true,
                 "formatter"   => "warningsLinkFormatter",
             ],

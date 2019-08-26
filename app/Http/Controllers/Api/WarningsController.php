@@ -23,7 +23,7 @@ class WarningsController extends Controller
     public function index(Request $request)
     {
         $this->authorize('index', Warning::class);
-        $allowed_columns = ['id', 'id_customer', 'name', 'created_customer_at', 'status', 'duration', 'warning_before', 'hour_warning'];
+        $allowed_columns = ['id', 'id_customer', 'name', 'created_customer_at', 'expired_at', 'status', 'duration', 'warning_before', 'hour_warning'];
 
         // $warnings = new Warning(); 
         $warnings = Warning::with('customer');

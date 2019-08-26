@@ -26,6 +26,7 @@ class WarningsTransformer
             'customer' => ($warning->customer) ? ['id' => $warning->customer->id, 'name'=> e($warning->customer->name)] : null,
             'name' => e($warning->name),
             'created_customer_at' => ($warning->customer->created_at) ? e($warning->customer->created_at) : null,
+            'expired_at' => ($warning->expired_at) ? e($warning->expired_at) : null,
             'status' => ($warning->status) ? e($warning->status) : null,
             'duration' => ($warning->duration) ? e($warning->duration) : null,
             'warning_before' => ($warning->warning_before) ? e($warning->warning_before) : null,

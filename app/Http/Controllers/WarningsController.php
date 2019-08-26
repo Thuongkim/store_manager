@@ -61,6 +61,7 @@ class WarningsController extends Controller
         isset($customer)?($warning->name = $customer->name):($warning->name = null);
         $warning->id_customer             = request('id_customer');
         isset($customer)?($warning->created_customer_at = $customer->created_at):($warning->created_customer_at = null);
+        isset($customer)?($warning->expired_at = Carbon::parse($warning->created_customer_at)->addDays(request('duration'))):($warning->expired_at = null);
         Carbon::now() >= Carbon::parse($warning->created_customer_at)->addDays(request('duration')) ? $warning->status = "Expired" : $warning->status = "Active";
         $warning->duration                = request('duration');
         $warning->warning_before          = request('warning_before');
@@ -115,14 +116,6 @@ class WarningsController extends Controller
     	return redirect()->route('warnings.index')->with('error', trans('admin/warnings/message.does_not_exist'));
     }
 
-    /**
-     * Update the specified Permission in storage.
-     *
-     * @param int $id
-     * @param UpdatePermissionRequest $request
-     *
-     * @return Response
-     */
     public function update(Request $request, $warningId = null)
     {
         date_default_timezone_set('Asia/Ho_Chi_Minh');
@@ -137,6 +130,7 @@ class WarningsController extends Controller
         isset($customer)?($warning->name = $customer->name):($warning->name = null);
         $warning->id_customer             = request('id_customer');
         isset($customer)?($warning->created_customer_at = $customer->created_at):($warning->created_customer_at = null);
+        isset($customer)?($warning->expired_at = Carbon::parse($warning->created_customer_at)->addDays(request('duration'))):($warning->expired_at = null);
         Carbon::now() >= Carbon::parse($warning->created_customer_at)->addDays(request('duration')) ? $warning->status = "Expired" : $warning->status = "Active";
         $warning->duration                = request('duration');
         $warning->warning_before          = request('warning_before');
@@ -166,10 +160,6 @@ class WarningsController extends Controller
 
     	$this->authorize($warning);
 
-
-        // if ($warning->hasUsers() > 0) {
-        //      return redirect()->route('accessories.index')->with('error', trans('admin/accessories/message.assoc_users', array('count'=> $accessory->hasUsers())));
-        // }
     	$warning->delete();
     	return redirect()->route('warnings.index')->with('success', trans('admin/warnings/message.delete.success'));
     }
