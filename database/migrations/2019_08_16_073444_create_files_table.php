@@ -20,7 +20,6 @@ class CreateFilesTable extends Migration
             $table->integer('fileable_id')->nullable();
             $table->string('fileable_type');
             $table->timestamps();
-            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

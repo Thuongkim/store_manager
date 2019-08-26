@@ -35,6 +35,6 @@ class CreateWarningsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('warning');
+        Schema::dropIfExists('warnings');
     }
 }
