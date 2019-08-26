@@ -13,6 +13,7 @@ class CreateCustomersTable extends Migration
      */
     public function up()
     {
+        date_default_timezone_set('Asia/Ho_Chi_Minh');
         Schema::create('customers', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
@@ -24,7 +25,7 @@ class CreateCustomersTable extends Migration
             $table->string('zip');
             $table->string('taxcode');
             $table->string('email');
-            $table->timestamps();
+            $table->timestampsTz();
         });
     }
 

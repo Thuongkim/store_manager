@@ -1,6 +1,7 @@
 <?php
 
 return array(
+    'duration'              => 'Duration (days)',
     'city'                  => 'City',
     'actions'               => 'Actions',
     'address_new'           => 'Address',

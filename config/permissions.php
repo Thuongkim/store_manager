@@ -146,6 +146,34 @@ return array(
             'display'    => true,
         ),
     ),
+    
+    'Appendixes' => array(
+        array(
+            'permission' => 'appendixes.view',
+            'label'      => 'View ',
+            'note'       => '',
+            'display'    => true,
+        ),
+        array(
+            'permission' => 'appendixes.create',
+            'label'      => 'Create ',
+            'note'       => '',
+            'display'    => true,
+        ),
+        array(
+            'permission' => 'appendixes.edit',
+            'label'      => 'Edit ',
+            'note'       => '',
+            'display'    => true,
+        ),
+        array(
+            'permission' => 'appendixes.delete',
+            'label'      => 'Delete ',
+            'note'       => '',
+            'display'    => true,
+        ),
+    ),
+
 
     'Sales' => array(
         array(
@@ -337,6 +365,34 @@ return array(
         ),
         array(
             'permission' => 'customers.delete',
+            'label'      => 'Delete',
+            'note'       => '',
+            'display'    => true,
+        ),
+
+    ),
+
+    'Warnings' => array(
+        array(
+            'permission' => 'warnings.view',
+            'label'      => 'View',
+            'note'       => '',
+            'display'    => true,
+        ),
+        array(
+            'permission' => 'warnings.create',
+            'label'      => 'Create',
+            'note'       => '',
+            'display'    => true,
+        ),
+        array(
+            'permission' => 'warnings.edit',
+            'label'      => 'Edit',
+            'note'       => '',
+            'display'    => true,
+        ),
+        array(
+            'permission' => 'warnings.delete',
             'label'      => 'Delete',
             'note'       => '',
             'display'    => true,
@@ -668,7 +724,32 @@ return array(
             'note'       => '',
             'display'    => true,
         ),
-    ),
+    ),'Contract' => array(
+        array(
+            'permission' => 'contract.view',
+            'label'      => 'View ',
+            'note'       => '',
+            'display'    => true,
+        ),
+        array(
+            'permission' => 'contract.create',
+            'label'      => 'Create ',
+            'note'       => '',
+            'display'    => true,
+        ),
+        array(
+            'permission' => 'contract.edit',
+            'label'      => 'Edit  ',
+            'note'       => '',
+            'display'    => true,
+        ),
+        array(
+            'permission' => 'contract.delete',
+            'label'      => 'Delete ',
+            'note'       => '',
+            'display'    => true,
+        ),
+    )
 
 
 

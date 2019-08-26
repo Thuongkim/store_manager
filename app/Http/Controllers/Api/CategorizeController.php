@@ -112,4 +112,24 @@ class CategorizeController extends Controller
     {
         $this->authorize('view', Categorize::class);
     }
+
+     public function selectlist(Request $request)
+    {
+
+        $categorize = Categorize::select([
+            'id',
+            'name',
+        ]);
+
+        if ($request->filled('search')) {
+            $categorize = $categorize->where('name', 'LIKE', '%'.$request->get('search').'%');
+        }
+
+        $categorize = $categorize->orderBy('name', 'ASC')->paginate(50);
+
+        return (new SelectlistTransformer)->transformSelectlist($categorize);
+
+    }
+
+
 }

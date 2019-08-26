@@ -20,6 +20,7 @@ class CreateSalesTable extends Migration
             $table->string('phone');
             $table->text('address');
             $table->boolean('gender');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

@@ -103,6 +103,11 @@ Route::group(['prefix' => 'v1','namespace' => 'Api', 'middleware' => 'api'], fun
         ]
     ); // Categories resource
 
+    Route::get( 'categorizes/selectlist',  [
+        'as' => 'api.categorizes.selectlist',
+        'uses' => 'CategorizeController@selectlist'
+    ]);
+
     Route::resource('categorize', 'CategorizeController',
         [
             'names' =>
@@ -112,6 +117,21 @@ Route::group(['prefix' => 'v1','namespace' => 'Api', 'middleware' => 'api'], fun
                     'store' => 'api.categorize.store',
                     'update' => 'api.categorize.update',
                     'destroy' => 'api.categorize.destroy'
+                ],
+            'except' => ['edit', 'create'],
+            'parameters' => ['categorize' => 'categorize_id']
+        ]
+    );
+
+    Route::resource('contract', 'ContractController',
+        [
+            'names' =>
+                [
+                    'index' => 'api.contract.index',
+                    'show' => 'api.contract.show',
+                    'store' => 'api.contract.store',
+                    'update' => 'api.contract.update',
+                    'destroy' => 'api.contract.destroy'
                 ],
             'except' => ['edit', 'create']
         ]
@@ -143,6 +163,16 @@ Route::group(['prefix' => 'v1','namespace' => 'Api', 'middleware' => 'api'], fun
 
 
     /* -----Customer API ------*/
+     Route::get( 'customers/selectlist',  [
+        'as' => 'api.customers.selectlist',
+        'uses' => 'CustomersController@selectlist'
+    ]);
+
+
+    Route::get( 'customers/selectlist',  [
+        'as' => 'customers.selectlist',
+        'uses' => 'CustomersController@selectlist'
+    ]);
 
     Route::resource('customers', 'CustomersController',
         ['names' =>
@@ -153,11 +183,27 @@ Route::group(['prefix' => 'v1','namespace' => 'Api', 'middleware' => 'api'], fun
                 'store' => 'api.customers.store',
                 'destroy' => 'api.customers.destroy'
             ],
-            // 'except' => ['create', 'edit'],
-            // 'parameters' => ['customer' => 'customer_id']
+            'except' => ['create', 'edit'],
+            'parameters' => ['customer' => 'customer_id']
         ]
-    ); // Accessories resource
+    ); 
 
+     /* -----Warning API ------*/
+
+    Route::resource('warnings', 'WarningsController',
+        ['names' =>
+            [
+                'index' => 'api.warnings.index',
+                'show' => 'api.warnings.show',
+                'update' => 'api.warnings.update',
+                'store' => 'api.warnings.store',
+                'destroy' => 'api.warnings.destroy'
+            ],
+        ]
+    ); 
+
+
+    // Accessories resource
     Route::group(['prefix' => 'accessories'], function () {
 
         Route::get('{accessory}/checkedout',
@@ -810,6 +856,10 @@ Route::group(['prefix' => 'v1','namespace' => 'Api', 'middleware' => 'api'], fun
         'reports/activity',
         [ 'as' => 'api.activity.index', 'uses' => 'ReportsController@index' ]
     );
+    Route::get( 'sales/selectlist',  [
+        'as' => 'api.sales.selectlist',
+        'uses' => 'SalesController@selectlist'
+    ]);
 
     Route::resource('sales', 'SalesController',
         [
@@ -827,6 +877,28 @@ Route::group(['prefix' => 'v1','namespace' => 'Api', 'middleware' => 'api'], fun
         ]
     ); // sales resource
 
+    Route::resource('appendixes', 'appendixesController',
+        [
+            'names' =>
+                [
+                    'index' => 'api.appendixes.index',
+                    'show' => 'api.appendixes.show',
+                    'store' => 'api.appendixes.store',
+                    'update' => 'api.appendixes.update',
+                    'destroy' => 'api.appendixes.destroy'
+                ]
+            //     ,
+            // 'except' => ['create', 'edit'],
+            // 'parameters' => ['sale' => 'sale_id']
+        ]
+    ); // appendixes resource
+
+/*--- Contracts API ---*/
+
+    Route::get( 'contracts/selectlist',  [
+        'as' => 'contracts.selectlist',
+        'uses' => 'ContractsController@selectlist'
+    ]);
 
 
 });

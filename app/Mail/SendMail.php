@@ -28,8 +28,8 @@ class SendMail extends Mailable
      */
     public function build()
     {
-        return $this->from('baobinh110297@gmail.com', 'Snipe IT By Thông')->subject('Feedback Contact of Customers')->view('dynamic_email_template')->with('data', $this->data);
+        return $this->from('baobinh110297@gmail.com', 'Snipe IT By Thông')->subject('Cảnh báo hết hạn hợp đồng')->view('dynamic_email_template')->with('data', $this->data);
     }
-    //Thiết lập thông tin người gửi
-    //địa chỉ người gửi - tên người gửi - tiêu đề - mẫu trang muốn gửi
+    //Setting information of sender
+    //Address - Name - Caption - Mail Template you want sent
 }

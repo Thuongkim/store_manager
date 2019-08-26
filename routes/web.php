@@ -76,6 +76,18 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::resource('sales', 'SalesControlller');
 
+    Route::resource('contract', 'ContractController');
+
+    Route::get('dropzone', 'FileController@dropzone');
+    Route::post('dropzone/store', ['as'=>'dropzone.store','uses'=>'FileController@dropzoneStore']);
+    Route::post('dropzone/delete',['as'=>'dropzone.delete','uses'=>'FileController@dropzoneDelete']);
+    Route::get('show/dropzone',['as'=>'show.dropzone','uses'=>'FileController@getDropzone']);
+    Route::resource('appendixes', 'AppendixesController');
+    Route::post('uploadImage', 'FilesController@postImages');
+    Route::post('deleteImage', 'FilesController@destroyImages');
+    Route::get('showImage', 'FilesController@showImages')->name('showImage');
+
+
     
 });
 
@@ -471,7 +483,15 @@ Route::group(['middleware' => 'web'], function () {
 
 Auth::routes();
 
+Route::get('/warnings/ajax/{id}', [
+    'as' => 'ajax',
+    'uses' => 'WarningsController@ajax'
+]);
+
 Route::resource('customers', 'CustomersController');
+Route::resource('warnings', 'WarningsController');
 
 Route::get('/sendemail', 'SendEmailController@index');
 Route::post('/sendemail/send', 'SendEmailController@send');
+
+
