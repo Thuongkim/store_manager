@@ -66,3 +66,6 @@
 </div>
 
 @stop
+@section('moar_scripts')
+    @yield('edit_scripts')
+@stop

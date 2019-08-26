@@ -49,7 +49,16 @@
 </div>
 
 @stop
-
+@section('zoom-img')
+<script>
+  $(document).ready(function() {
+      $('[data-fancybox]').each(function(){
+          $(this).attr('data-caption', $(this).attr('title'));
+      });
+      $('[data-fancybox]').fancybox();
+  });
+</script>
+@stop
 @section('moar_scripts')
 @include ('partials.bootstrap-table')
 @stop

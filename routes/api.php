@@ -802,6 +802,12 @@ Route::group(['prefix' => 'v1','namespace' => 'Api', 'middleware' => 'api'], fun
         ]
     ); // appendixes resource
 
+/*--- Contracts API ---*/
+
+    Route::get( 'contracts/selectlist',  [
+        'as' => 'contracts.selectlist',
+        'uses' => 'ContractsController@selectlist'
+    ]);
 
 
 });

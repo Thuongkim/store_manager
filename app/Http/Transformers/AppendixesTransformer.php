@@ -13,26 +13,37 @@ class AppendixesTransformer
     {
         $array = array();
         foreach ($appendixes as $appendix) {
-            $array[] = self::transformAppendix($appendix);
+            // if ($appendix->files) {
+            //     $appendix->image = $appendix->files->first()['url'];
+            // }
+            $images = array();
+            foreach ($appendix->files as $file) {
+                // $ext = strstr($file->url,'.');
+                // if ($ext != '.pdf') {
+                    $images[] = $file->url;
+                // }
+            }
+            $array[] = self::transformAppendix($appendix,$images);
         }
         return (new DatatablesTransformer)->transformDatatables($array, $total);
     }
 
-    public function transformAppendix (Appendix $appendix)
+    public function transformAppendix (Appendix $appendix,$images)
     {
         $array = [
-            'id'           => (int) $appendix->id,
-            'sign_date' => ($appendix->sign_date) ? Helper::getFormattedDateObject($appendix->sign_date, 'date') : null,
-            'duration'     => e($appendix->duration),
-            'renewed' => ($appendix->renewed =='1') ? true : false,
-            'value'        => ($appendix->value) ? Helper::formatCurrencyOutput($appendix->value) : null,
-            'payment'       => ($appendix->payment == '1') ? e('Cash') : e('Bank Transfers'),
-            'payment_date' => ($appendix->payment_date) ? Helper::getFormattedDateObject($appendix->payment_date, 'date') : null,
-            'note'         => ($appendix->note) ? e($appendix->note) : null,
-            'image' => ($appendix->files) ? url('/').'/uploads/appendixes/'.e($appendix->files[0]['url']) : null,
-            'number_contract' => ($appendix->contract) ? ['id' => $appendix->contract->id,'number'=> e($appendix->contract->number)] : null,
-            'created_at'   => Helper::getFormattedDateObject($appendix->created_at, 'datetime'),
-            'updated_at'   => Helper::getFormattedDateObject($appendix->updated_at, 'datetime'),
+            'id'              => (int) $appendix->id,
+            'sign_date'       => ($appendix->sign_date) ? Helper::getFormattedDateObject($appendix->sign_date, 'date') : null,
+            'duration'        => e($appendix->duration),
+            'renewed'         => ($appendix->renewed =='1') ? true : false,
+            'value'           => ($appendix->value) ? Helper::formatCurrencyOutput($appendix->value) : null,
+            'payment'         => ($appendix->payment == '1') ? e('Cash') : e('Bank Transfers'),
+            'payment_date'    => ($appendix->payment_date) ? Helper::getFormattedDateObject($appendix->payment_date, 'date') : null,
+            'note'            => ($appendix->note) ? e($appendix->note) : null,
+            'image' => ($images) ?  ($images) : null,
+            // 'image' => ($appendix->image) ? url('/').e($appendix->image) : null,
+            'number_contract' => e($appendix->contract->number),
+            'created_at'      => Helper::getFormattedDateObject($appendix->created_at, 'datetime'),
+            'updated_at'      => Helper::getFormattedDateObject($appendix->updated_at, 'datetime'),
 
         ];
 

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Helpers\Helper;
 use App\Models\Appendix;
+use App\Models\File;
 use App\Http\Transformers\AppendixesTransformer;
 
 

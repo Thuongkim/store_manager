@@ -75,6 +75,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('sales', 'SalesControlller');
 
     Route::resource('appendixes', 'AppendixesController');
+    Route::post('uploadImage', 'FilesController@postImages');
+    Route::post('deleteImage', 'FilesController@destroyImages');
+    Route::get('showImage', 'FilesController@showImages')->name('showImage');
+
 
     
 });

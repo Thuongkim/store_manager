@@ -10,6 +10,7 @@ use App\Presenters\Presentable;
 
 class Appendix extends Model
 {
+    protected $dates = ['sign_date', 'payment_date'];
     protected $table = 'appendixes';
 
     use Searchable,Presentable;
@@ -57,10 +58,10 @@ class Appendix extends Model
 
     public $rules = array(
         'sign_date' => 'required',
-        'duartion' => 'required',
-        'renewed' => 'required',
+        'duration' => 'required',
         'payment' => 'required',
-        'payment_date' => 'required',
+        'payment_date' => 'required',        
+        'contract_id' => 'required',        
     );
 
     public function contract()

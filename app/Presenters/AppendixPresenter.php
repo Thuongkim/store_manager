@@ -23,13 +23,13 @@ class AppendixPresenter extends Presenter
                 "sortable" => true,
                 "switchable" => true,
                 "title" => trans('general.id'),
-                "visible" => false
+                "visible" => false,
             ], [
                 "field" => "sign_date",
                 "searchable" => true,
                 "sortable" => true,
                 "title" => trans('admin/appendixes/general.sign_date'),
-                // "formatter" => "appendixesLinkFormatter"
+                "formatter" => "dateDisplayFormatter"
             ], [
                 "field" => "duration",
                 "searchable" => true,
@@ -41,7 +41,7 @@ class AppendixPresenter extends Presenter
                 "searchable" => true,
                 "sortable" => true,
                 "title" => trans('admin/appendixes/general.renewed'),
-                // "formatter" => "phoneFormatter"
+                'formatter' => 'trueFalseFormatter'
             ], [
                 "field" => "value",
                 "searchable" => true,
@@ -56,25 +56,26 @@ class AppendixPresenter extends Presenter
                 "field" => "payment_date",
                 "searchable" => true,
                 "sortable" => true,
-                "title" => trans('admin/appendixes/general.payment_date')
+                "title" => trans('admin/appendixes/general.payment_date'),
+                "formatter" => "dateDisplayFormatter"
             ], [
                 "field" => "note",
                 "searchable" => false,
                 "sortable" => false,
                 "title" => trans('admin/appendixes/general.note')
             ], [
+                "field" => "number_contract",
+                "searchable" => true,
+                "sortable" => true,
+                "title" => trans('admin/appendixes/general.number_contract'),
+            ], [
                 "field" => "image",
                 "searchable" => false,
                 "sortable" => true,
                 "switchable" => true,
-                "title" => trans('admin/hardware/table.image'),
+                "title" => trans('admin/appendixes/general.image'),
                 "visible" => true,
-                "formatter" => "imageFormatter"
-            ], [
-                "field" => "number_contract",
-                "searchable" => true,
-                "sortable" => true,
-                "title" => trans('admin/appendixes/general.number_contract')
+                "formatter" => "imagesFormatter"
             ], [
                 "field" => "actions",
                 "searchable" => false,

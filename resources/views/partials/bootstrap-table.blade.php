@@ -349,6 +349,7 @@
         'groups',
         'sales',
         'appendixes',
+        'contracts',
     ];
 
     for (var i in formatters) {
@@ -526,6 +527,24 @@
         if (value) {
             return '<a href="' + value + '" data-toggle="lightbox" data-type="image"><img src="' + value + '" style="max-height: {{ $snipeSettings->thumbnail_max_h }}px; width: auto;" class="img-responsive"></a>';
         }
+    }
+
+    function imagesFormatter(value, row) {
+        if (value) {
+            var length = value.length;
+            var images = '<a href="' + value[0] + '" data-fancybox="mygallery_'+row.id+'" ><img src="' + value[0] + '" style="max-height: {{ $snipeSettings->thumbnail_max_h }}px; width: auto;display: inline;"></a>';
+            for(i = 1; i < length; i++) {
+                var ext = value[i].split('.').pop();
+                if (ext==='pdf') {
+                   images += '<a href="' + value[i] + '" data-fancybox="mygallery_'+row.id+'" ><img src="/uploads/appendixes/pdf.png" style="max-height: {{ $snipeSettings->thumbnail_max_h }}px; width: auto;display: none;" ></a>';
+                } 
+                else {
+                    images += '<a href="' + value[i] + '" data-fancybox="mygallery_'+row.id+'" ><img src="' + value[i] + '" style="max-height: {{ $snipeSettings->thumbnail_max_h }}px; width: auto;display: none;" ></a>';
+                }
+            }
+            return images;
+        }
+       
     }
 
     function fileUploadFormatter(value) {

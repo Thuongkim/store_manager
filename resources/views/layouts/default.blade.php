@@ -29,6 +29,14 @@
 
     <link rel="shortcut icon" type="image/ico" href="{{ url(asset('favicon.ico')) }}">
 
+    {{-- fancybox css --}}
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.2/jquery.fancybox.min.css">
+
+    {{-- dropzone cdn --}}
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/dropzone.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/dropzone.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="baseUrl" content="{{ url('/') }}/">
 
@@ -842,7 +850,9 @@
 
 
     <script src="{{ url(mix('js/dist/all.js')) }}" nonce="{{ csrf_token() }}"></script>
-
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.2/jquery.fancybox.min.js"></script>
+    @yield('zoom-img')
     @section('moar_scripts')
     @show
 
@@ -886,8 +896,6 @@
          $("#tagSearch").focus();
     </script>
     @endif
-
-
 
   </body>
 </html>

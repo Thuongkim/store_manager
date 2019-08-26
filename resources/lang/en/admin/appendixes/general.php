@@ -10,6 +10,7 @@ return array(
         'sign_date'                 => 'Sign date',
         'duration'                  => 'Duration',
         'renewed'                   => 'Renewed',
+        'image'                     => 'Image',
         'about_appendixes_title'    => 'About appendixes',
         'about_appendixes_text'     => 'Appendixes are anything you issue to users but that do not have a serial number (or you do not care about tracking them uniquely). For example, computer mice or keyboards.',
         'appendix_category'         => 'Appendix Category',
