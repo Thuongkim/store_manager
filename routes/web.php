@@ -76,6 +76,12 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::resource('sales', 'SalesControlller');
 
+    Route::resource('contract', 'ContractController');
+
+    Route::get('dropzone', 'FileController@dropzone');
+    Route::post('dropzone/store', ['as'=>'dropzone.store','uses'=>'FileController@dropzoneStore']);
+    Route::post('dropzone/delete',['as'=>'dropzone.delete','uses'=>'FileController@dropzoneDelete']);
+    Route::get('show/dropzone',['as'=>'show.dropzone','uses'=>'FileController@getDropzone']);
     Route::resource('appendixes', 'AppendixesController');
     Route::post('uploadImage', 'FilesController@postImages');
     Route::post('deleteImage', 'FilesController@destroyImages');

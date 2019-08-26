@@ -105,4 +105,8 @@ class Customer extends Model
         $remaining = $total - $checkedout;
         return $remaining;
     }
+    public function contract()
+    {
+        return $this->hasOne('\App\Models\Contract');
+    }
 }

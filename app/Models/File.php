@@ -6,12 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class File extends Model
 {
-    protected $table = 'files';
+	protected $table = 'files';
 
-    protected $fillable = ['url','fileable_id','fillable_type'];
+	protected $fillable = ['url','user_id','fileable_id','fillable_type'];
 
-    public function filetable()
-    {
-        return $this->morphTo();
-    }
+	public function filetable()
+	{
+		return $this->morphTo();
+	}
 }

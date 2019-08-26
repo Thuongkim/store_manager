@@ -103,6 +103,11 @@ Route::group(['prefix' => 'v1','namespace' => 'Api', 'middleware' => 'api'], fun
         ]
     ); // Categories resource
 
+    Route::get( 'categorizes/selectlist',  [
+        'as' => 'api.categorizes.selectlist',
+        'uses' => 'CategorizeController@selectlist'
+    ]);
+
     Route::resource('categorize', 'CategorizeController',
         [
             'names' =>
@@ -112,6 +117,21 @@ Route::group(['prefix' => 'v1','namespace' => 'Api', 'middleware' => 'api'], fun
                     'store' => 'api.categorize.store',
                     'update' => 'api.categorize.update',
                     'destroy' => 'api.categorize.destroy'
+                ],
+            'except' => ['edit', 'create'],
+            'parameters' => ['categorize' => 'categorize_id']
+        ]
+    );
+
+    Route::resource('contract', 'ContractController',
+        [
+            'names' =>
+                [
+                    'index' => 'api.contract.index',
+                    'show' => 'api.contract.show',
+                    'store' => 'api.contract.store',
+                    'update' => 'api.contract.update',
+                    'destroy' => 'api.contract.destroy'
                 ],
             'except' => ['edit', 'create']
         ]
@@ -143,6 +163,11 @@ Route::group(['prefix' => 'v1','namespace' => 'Api', 'middleware' => 'api'], fun
 
 
     /* -----Customer API ------*/
+     Route::get( 'customers/selectlist',  [
+        'as' => 'api.customers.selectlist',
+        'uses' => 'CustomersController@selectlist'
+    ]);
+
 
     Route::get( 'customers/selectlist',  [
         'as' => 'customers.selectlist',
@@ -158,8 +183,8 @@ Route::group(['prefix' => 'v1','namespace' => 'Api', 'middleware' => 'api'], fun
                 'store' => 'api.customers.store',
                 'destroy' => 'api.customers.destroy'
             ],
-            // 'except' => ['create', 'edit'],
-            // 'parameters' => ['customer' => 'customer_id']
+            'except' => ['create', 'edit'],
+            'parameters' => ['customer' => 'customer_id']
         ]
     ); 
 
@@ -831,6 +856,10 @@ Route::group(['prefix' => 'v1','namespace' => 'Api', 'middleware' => 'api'], fun
         'reports/activity',
         [ 'as' => 'api.activity.index', 'uses' => 'ReportsController@index' ]
     );
+    Route::get( 'sales/selectlist',  [
+        'as' => 'api.sales.selectlist',
+        'uses' => 'SalesController@selectlist'
+    ]);
 
     Route::resource('sales', 'SalesController',
         [

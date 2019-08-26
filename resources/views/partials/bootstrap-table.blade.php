@@ -360,6 +360,7 @@
         'appendixes',
         'contracts',
         'warnings',
+        'contract',
     ];
 
     for (var i in formatters) {
@@ -629,6 +630,23 @@
         if (value) {
             return '<a href="' + value + '" data-toggle="lightbox" data-type="image"><img src="' + value + '" style="max-height: {{ $snipeSettings->thumbnail_max_h }}px; width: auto;" class="img-responsive"></a>';
         }
+    }
+
+    function imagessFormatter(value, row) {
+        if (value) {
+            var length = value.length;
+            var images = '<a href="/images' + value[0] + '" data-fancybox="mygallery_'+row.id+'" ><img src="/images' + value[0] + '" style="height: 40px; width: 50px;display: inline;"></a>';
+            for(i = 1; i < length; i++) {
+                var ext = value[i].split('.').pop();
+                if (ext==='pdf') {
+                   images += '<a href="/images' + value[i] + '" data-fancybox="mygallery_'+row.id+'" ><img src="/images/pdf.png" style="height: 40px; width: 50px;display: none;" ></a>'; 
+                }else{
+                images += '<a href="/images' + value[i] + '" data-fancybox="mygallery_'+row.id+'" ><img src="/images' + value[i] + '" style="height: 40px; width: 50px;display: none;" ></a>';
+            }
+            }
+            return images;
+        }
+        
     }
 
     function imagesFormatter(value, row) {

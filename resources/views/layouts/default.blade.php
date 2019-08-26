@@ -29,12 +29,13 @@
 
     <link rel="shortcut icon" type="image/ico" href="{{ url(asset('favicon.ico')) }}">
 
-    {{-- fancybox css --}}
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.2/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
-    {{-- dropzone cdn --}}
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/dropzone.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/dropzone.js"></script>
+  <link rel="stylesheet" href="{{ asset('js/dropzone/dropzone.css') }}">
+  <!-- Zoom Images -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.2/jquery.fancybox.min.css">
+  
+
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -771,6 +772,15 @@
             </li>
             @endcan
 
+            @can('view', \App\Models\Contract::class)
+            <li{!! (Request::is('contract*') ? ' class="active"' : '') !!}>
+            <a href="{{ route('contract.index') }}">
+              <i class="fa fa-list-alt"></i>
+              <span>{{ trans('admin/contract/general.contract') }}</span>
+            </a>
+          </li>
+          @endcan
+
           </ul>
         </section>
         <!-- /.sidebar -->
@@ -893,8 +903,12 @@
 
     <script src="{{ url(mix('js/dist/all.js')) }}" nonce="{{ csrf_token() }}"></script>
     
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.2/jquery.fancybox.min.js"></script>
-    @yield('zoom-img')
+<!-- IMG -->
+<script type="text/javascript" src="{{ asset('js/dropzone/dropzone.js') }}"></script>
+@yield('dropzone-img')
+<!-- Zoom IMG -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.2/jquery.fancybox.min.js"></script>
+@yield('zoom-img')
     @section('moar_scripts')
     @show
 

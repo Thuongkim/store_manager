@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Customer;
 use App\Models\Company;
 use App\Http\Transformers\CustomersTransformer;
+use App\Http\Transformers\SelectlistTransformer;
 use App\Helpers\Helper;
 use DB;
 use App\Http\Transformers\SelectlistTransformer;
@@ -195,18 +196,22 @@ class CustomersController extends Controller
         $data = array('total' => $customerCount, 'rows' => $rows);
         return $data;
     }
+
     public function selectlist(Request $request)
     {
-        $customers = Customer::select([
-            'customers.name',
-            'customers.id',
+
+        $customer = Customer::select([
+            'id',
+            'name',
         ]);
 
         if ($request->filled('search')) {
-            $customers = $customers->where('customers.name', 'LIKE', '%'.$request->get('search').'%');
+            $customer = $customer->where('name', 'LIKE', '%'.$request->get('search').'%');
         }
-        $customers = $customers->orderBy('name', 'ASC')->paginate(50);
 
-        return (new SelectlistTransformer)->transformSelectlist($customers);
+        $customer = $customer->orderBy('name', 'ASC')->paginate(50);
+
+        return (new SelectlistTransformer)->transformSelectlist($customer);
+
     }
 }
