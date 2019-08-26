@@ -3,6 +3,9 @@
     return [
     'description'           => 'Description',
     'categorize'            => 'Categorize',
+    'sales'                 => 'Sales',
+    'contract'              => 'Contract',
+    'appendixes'            => 'Appendixes',
     'accessories'			=> 'Accessories',
     'sales'       			=>'Sales',
     'accessories' 			=> 'Accessories',

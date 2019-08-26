@@ -827,6 +827,28 @@ Route::group(['prefix' => 'v1','namespace' => 'Api', 'middleware' => 'api'], fun
         ]
     ); // sales resource
 
+    Route::resource('appendixes', 'appendixesController',
+        [
+            'names' =>
+                [
+                    'index' => 'api.appendixes.index',
+                    'show' => 'api.appendixes.show',
+                    'store' => 'api.appendixes.store',
+                    'update' => 'api.appendixes.update',
+                    'destroy' => 'api.appendixes.destroy'
+                ]
+            //     ,
+            // 'except' => ['create', 'edit'],
+            // 'parameters' => ['sale' => 'sale_id']
+        ]
+    ); // appendixes resource
+
+/*--- Contracts API ---*/
+
+    Route::get( 'contracts/selectlist',  [
+        'as' => 'contracts.selectlist',
+        'uses' => 'ContractsController@selectlist'
+    ]);
 
 
 });

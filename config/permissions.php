@@ -146,6 +146,34 @@ return array(
             'display'    => true,
         ),
     ),
+    
+    'Appendixes' => array(
+        array(
+            'permission' => 'appendixes.view',
+            'label'      => 'View ',
+            'note'       => '',
+            'display'    => true,
+        ),
+        array(
+            'permission' => 'appendixes.create',
+            'label'      => 'Create ',
+            'note'       => '',
+            'display'    => true,
+        ),
+        array(
+            'permission' => 'appendixes.edit',
+            'label'      => 'Edit ',
+            'note'       => '',
+            'display'    => true,
+        ),
+        array(
+            'permission' => 'appendixes.delete',
+            'label'      => 'Delete ',
+            'note'       => '',
+            'display'    => true,
+        ),
+    ),
+
 
     'Sales' => array(
         array(
