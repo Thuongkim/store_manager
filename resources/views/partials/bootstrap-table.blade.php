@@ -129,32 +129,32 @@
                   'deployed': '{{ strtolower(trans('general.deployed')) }}',
                   'deployable': '{{ strtolower(trans('admin/hardware/general.deployable')) }}',
                   'pending': '{{ strtolower(trans('general.pending')) }}'
-                }
+              }
 
-                switch (value.status_meta) {
-                    case 'deployed':
-                        text_color = 'blue';
-                        icon_style = 'fa-circle';
-                        text_help = '<label class="label label-default">{{ trans('general.deployed') }}</label>';
-                    break;
-                    case 'deployable':
-                        text_color = 'green';
-                        icon_style = 'fa-circle';
-                        text_help = '';
-                    break;
-                    case 'pending':
-                        text_color = 'orange';
-                        icon_style = 'fa-circle';
-                        text_help = '';
-                        break;
-                    default:
-                        text_color = 'red';
-                        icon_style = 'fa-times';
-                        text_help = '';
-                }
+              switch (value.status_meta) {
+                case 'deployed':
+                text_color = 'blue';
+                icon_style = 'fa-circle';
+                text_help = '<label class="label label-default">{{ trans('general.deployed') }}</label>';
+                break;
+                case 'deployable':
+                text_color = 'green';
+                icon_style = 'fa-circle';
+                text_help = '';
+                break;
+                case 'pending':
+                text_color = 'orange';
+                icon_style = 'fa-circle';
+                text_help = '';
+                break;
+                default:
+                text_color = 'red';
+                icon_style = 'fa-times';
+                text_help = '';
+            }
 
-                return '<nobr><a href="{{ url('/') }}/' + destination + '/' + value.id + '" data-tooltip="true" title="'+ status_meta[value.status_meta] + '"> <i class="fa ' + icon_style + ' text-' + text_color + '"></i> ' + value.name + ' ' + text_help + ' </a> </nobr>';
-            } else if ((value) && (value.name)) {
+            return '<nobr><a href="{{ url('/') }}/' + destination + '/' + value.id + '" data-tooltip="true" title="'+ status_meta[value.status_meta] + '"> <i class="fa ' + icon_style + ' text-' + text_color + '"></i> ' + value.name + ' ' + text_help + ' </a> </nobr>';
+        } else if ((value) && (value.name)) {
 
                 // Add some overrides for any funny urls we have
                 var dest = destination;
@@ -199,11 +199,11 @@
 
             if ((row.available_actions) && (row.available_actions.delete === true)) {
                 actions += '<a href="{{ url('/') }}/' + dest + '/' + row.id + '" '
-                    + ' class="btn btn-danger btn-sm delete-asset"  data-tooltip="true"  '
-                    + ' data-toggle="modal" '
-                    + ' data-content="{{ trans('general.sure_to_delete') }} ' + row.name + '?" '
-                    + ' data-title="{{  trans('general.delete') }}" onClick="return false;">'
-                    + '<i class="fa fa-trash"></i></a>&nbsp;';
+                + ' class="btn btn-danger btn-sm delete-asset"  data-tooltip="true"  '
+                + ' data-toggle="modal" '
+                + ' data-content="{{ trans('general.sure_to_delete') }} ' + row.name + '?" '
+                + ' data-title="{{  trans('general.delete') }}" onClick="return false;">'
+                + '<i class="fa fa-trash"></i></a>&nbsp;';
             } else {
                 actions += '<a class="btn btn-danger btn-sm delete-asset disabled" onClick="return false;"><i class="fa fa-trash"></i></a>&nbsp;';
             }
@@ -241,6 +241,9 @@
                 item_icon = 'fa-tint';
             } else if (value.type == 'customer') {
                 item_destination = 'customers';
+                item_icon = 'fa-tint';
+            } else if (value.type == 'warning') {
+                item_destination = 'warnings';
                 item_icon = 'fa-tint';
             } else if (value.type == 'license') {
                 item_destination = 'licenses';
@@ -297,26 +300,26 @@
 
             // The user is allowed to check items out, AND the item is deployable
             if ((row.available_actions.checkout == true) && (row.user_can_checkout == true) && ((!row.asset_id) && (!row.assigned_to))) {
-                    return '<a href="{{ url('/') }}/' + destination + '/' + row.id + '/checkout" class="btn btn-sm bg-maroon" data-tooltip="true" title="Check this item out">{{ trans('general.checkout') }}</a>';
+                return '<a href="{{ url('/') }}/' + destination + '/' + row.id + '/checkout" class="btn btn-sm bg-maroon" data-tooltip="true" title="Check this item out">{{ trans('general.checkout') }}</a>';
 
             // The user is allowed to check items out, but the item is not deployable
-            } else if (((row.user_can_checkout == false)) && (row.available_actions.checkout == true) && (!row.assigned_to)) {
-                return '<div  data-tooltip="true" title="This item has a status label that is undeployable and cannot be checked out at this time."><a class="btn btn-sm bg-maroon disabled">{{ trans('general.checkout') }}</a></div>';
+        } else if (((row.user_can_checkout == false)) && (row.available_actions.checkout == true) && (!row.assigned_to)) {
+            return '<div  data-tooltip="true" title="This item has a status label that is undeployable and cannot be checked out at this time."><a class="btn btn-sm bg-maroon disabled">{{ trans('general.checkout') }}</a></div>';
 
             // The user is allowed to check items in
-            } else if (row.available_actions.checkin == true)  {
-                if (row.assigned_to) {
-                    return '<a href="{{ url('/') }}/' + destination + '/' + row.id + '/checkin" class="btn btn-sm bg-purple" data-tooltip="true" title="Check this item in so it is available for re-imaging, re-issue, etc.">{{ trans('general.checkin') }}</a>';
-                } else if (row.assigned_pivot_id) {
-                    return '<a href="{{ url('/') }}/' + destination + '/' + row.assigned_pivot_id + '/checkin" class="btn btn-sm bg-purple" data-tooltip="true" title="Check this item in so it is available for re-imaging, re-issue, etc.">{{ trans('general.checkin') }}</a>';
-                }
-
+        } else if (row.available_actions.checkin == true)  {
+            if (row.assigned_to) {
+                return '<a href="{{ url('/') }}/' + destination + '/' + row.id + '/checkin" class="btn btn-sm bg-purple" data-tooltip="true" title="Check this item in so it is available for re-imaging, re-issue, etc.">{{ trans('general.checkin') }}</a>';
+            } else if (row.assigned_pivot_id) {
+                return '<a href="{{ url('/') }}/' + destination + '/' + row.assigned_pivot_id + '/checkin" class="btn btn-sm bg-purple" data-tooltip="true" title="Check this item in so it is available for re-imaging, re-issue, etc.">{{ trans('general.checkin') }}</a>';
             }
 
         }
 
-
     }
+
+
+}
 
 
     // This is only used by the requestable assets section
@@ -356,6 +359,7 @@
         'sales',
         'appendixes',
         'contracts',
+        'warnings',
     ];
 
     for (var i in formatters) {
@@ -371,11 +375,11 @@
     function customFieldsFormatter(value, row) {
 
 
-            if ((!this) || (!this.title)) {
-                return '';
-            }
+        if ((!this) || (!this.title)) {
+            return '';
+        }
 
-            var field_column = this.title;
+        var field_column = this.title;
 
             // Pull out any HTMl that might be passed via the presenter
             // (for example, the locked icon for encrypted fields)
@@ -394,37 +398,37 @@
 
             }
 
-    }
-
-
-    function createdAtFormatter(value) {
-        if ((value) && (value.date)) {
-            return value.date;
         }
-    }
 
-    function groupsFormatter(value) {
 
-        if (value) {
-            var groups = '';
-            for (var index in value.rows) {
-                groups += '<a href="{{ url('/') }}/admin/groups/' + value.rows[index].id + '" class="label label-default"> ' + value.rows[index].name + '</a> ';
+        function createdAtFormatter(value) {
+            if ((value) && (value.date)) {
+                return value.date;
             }
-            return groups;
         }
-    }
+
+        function groupsFormatter(value) {
+
+            if (value) {
+                var groups = '';
+                for (var index in value.rows) {
+                    groups += '<a href="{{ url('/') }}/admin/groups/' + value.rows[index].id + '" class="label label-default"> ' + value.rows[index].name + '</a> ';
+                }
+                return groups;
+            }
+        }
 
 
 
-    function changeLogFormatter(value) {
-        var result = '';
+        function changeLogFormatter(value) {
+            var result = '';
             for (var index in value) {
                 result += index + ': <del>' + value[index].old + '</del>  <i class="fa fa-long-arrow-right" aria-hidden="true"></i> ' + value[index].new + '<br>'
             }
 
-        return result;
+            return result;
 
-    }
+        }
 
 
     // Create a linked phone number in the table list
@@ -491,6 +495,15 @@
     function zipFormatter(value) {
         if (value) {
             return  '<a href="#">' + value + '</a>';
+        }
+    }
+
+    function statusFormatter(value, row) {
+        if (value == "Active") {
+            return  '<p><a href="/warnings/' + row.id + '/edit' + '">' + '<label style="font-size: 13px; cursor: pointer; border-radius: 15px !important" class="label label-info">' + value + '</label> <i style="color: #02B301; font-size: 20px;" class="fa fa-check-circle" ></i>' + '</a></p>';
+        }
+        else{
+            return  '<p><a href="/warnings/' + row.id + '/edit' + '">' + '<label style="font-size: 13px;cursor: pointer; border-radius: 15px !important" class="label label-default">' + value + '</label> <i style="color: red; font-size: 20px;" class="fa fa-exclamation-circle" ></i>' + '</a></p>';
         }
     }
 
@@ -612,7 +625,7 @@
     }
 
 
-   function imageFormatter(value) {
+    function imageFormatter(value) {
         if (value) {
             return '<a href="' + value + '" data-toggle="lightbox" data-type="image"><img src="' + value + '" style="max-height: {{ $snipeSettings->thumbnail_max_h }}px; width: auto;" class="img-responsive"></a>';
         }

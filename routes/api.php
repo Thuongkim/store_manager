@@ -144,6 +144,11 @@ Route::group(['prefix' => 'v1','namespace' => 'Api', 'middleware' => 'api'], fun
 
     /* -----Customer API ------*/
 
+    Route::get( 'customers/selectlist',  [
+        'as' => 'customers.selectlist',
+        'uses' => 'CustomersController@selectlist'
+    ]);
+
     Route::resource('customers', 'CustomersController',
         ['names' =>
             [
@@ -156,8 +161,24 @@ Route::group(['prefix' => 'v1','namespace' => 'Api', 'middleware' => 'api'], fun
             // 'except' => ['create', 'edit'],
             // 'parameters' => ['customer' => 'customer_id']
         ]
-    ); // Accessories resource
+    ); 
 
+     /* -----Warning API ------*/
+
+    Route::resource('warnings', 'WarningsController',
+        ['names' =>
+            [
+                'index' => 'api.warnings.index',
+                'show' => 'api.warnings.show',
+                'update' => 'api.warnings.update',
+                'store' => 'api.warnings.store',
+                'destroy' => 'api.warnings.destroy'
+            ],
+        ]
+    ); 
+
+
+    // Accessories resource
     Route::group(['prefix' => 'accessories'], function () {
 
         Route::get('{accessory}/checkedout',

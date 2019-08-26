@@ -372,6 +372,34 @@ return array(
 
     ),
 
+    'Warnings' => array(
+        array(
+            'permission' => 'warnings.view',
+            'label'      => 'View',
+            'note'       => '',
+            'display'    => true,
+        ),
+        array(
+            'permission' => 'warnings.create',
+            'label'      => 'Create',
+            'note'       => '',
+            'display'    => true,
+        ),
+        array(
+            'permission' => 'warnings.edit',
+            'label'      => 'Edit',
+            'note'       => '',
+            'display'    => true,
+        ),
+        array(
+            'permission' => 'warnings.delete',
+            'label'      => 'Delete',
+            'note'       => '',
+            'display'    => true,
+        ),
+
+    ),
+
 
     'Models' => array(
         array(

@@ -247,6 +247,14 @@
                            </a>
                        </li>
                        @endcan
+                       @can('create', \App\Models\Warning::class)
+                       <li {!! (Request::is('warnings/create') ? 'class="active"' : '') !!}>
+                           <a href="{{ route('warnings.create') }}">
+                               <i class="fa fa-tint fa-fw"></i>
+                               {{ trans('general.warnings') }}
+                           </a>
+                       </li>
+                       @endcan
                        @can('create', \App\Models\Component::class)
                        <li {!! (Request::is('components/create') ? 'class="active"' : '') !!}>
                            <a href="{{ route('components.create') }}">
@@ -558,8 +566,16 @@
             @can('view', \App\Models\Customer::class)
             <li{!! (Request::is('customers*') ? ' class="active"' : '') !!}>
                   <a href="{{ route('customers.index') }}">                       <!-- Thêm cột Customers -->
-                      <i class="fa fa-dashboard"></i>
+                      <i class="fa fa-user"></i>
                       <span>{{ trans('general.customers') }}</span>
+                  </a>
+            </li>
+            @endcan
+            @can('view', \App\Models\Warning::class)
+            <li{!! (Request::is('warnings*') ? ' class="active"' : '') !!}>
+                  <a href="{{ route('warnings.index') }}">                       <!-- Thêm cột Warnings -->
+                      <i class="fa fa-warning"></i>
+                      <span>{{ trans('general.warnings') }}</span>
                   </a>
             </li>
             @endcan

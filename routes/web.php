@@ -477,7 +477,15 @@ Route::group(['middleware' => 'web'], function () {
 
 Auth::routes();
 
+Route::get('/warnings/ajax/{id}', [
+    'as' => 'ajax',
+    'uses' => 'WarningsController@ajax'
+]);
+
 Route::resource('customers', 'CustomersController');
+Route::resource('warnings', 'WarningsController');
 
 Route::get('/sendemail', 'SendEmailController@index');
 Route::post('/sendemail/send', 'SendEmailController@send');
+
+

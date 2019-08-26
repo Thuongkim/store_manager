@@ -6,6 +6,7 @@ use App\Console\Commands\ImportLocations;
 use App\Console\Commands\RestoreDeletedUsers;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use App\Models\Warning;
 
 class Kernel extends ConsoleKernel
 {
@@ -36,6 +37,7 @@ class Kernel extends ConsoleKernel
         Commands\SendUpcomingAuditReport::class,
         Commands\ImportLocations::class,
         Commands\ReEncodeCustomFieldNames::class,
+        Commands\SendEmail::class,
     ];
 
     /**
@@ -46,15 +48,26 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-
+        //When is the warning - what time warning?
         $schedule->command('snipeit:inventory-alerts')->daily();
         $schedule->command('snipeit:expiring-alerts')->daily();
         $schedule->command('snipeit:expected-checkin')->daily();
         $schedule->command('snipeit:backup')->weekly();
         $schedule->command('backup:clean')->daily();
         $schedule->command('snipeit:upcoming-audits')->daily();
-    }
 
+        date_default_timezone_set('Asia/Ho_Chi_Minh');
+        $warnings = Warning::get();
+        foreach($warnings as $warning)
+        {
+            $schedule->command('warning:sendmail')->dailyAt($warning->hour_warning)->timezone('Asia/Ho_Chi_Minh');
+            if(\Carbon::now()->format('H:i') == $warning->hour_warning)
+            {
+                \Session::put('id', $warning->id);
+            } 
+        }
+    }
+    //When is the warning - what time warning?
     protected function commands()
     {
         require base_path('routes/console.php');
