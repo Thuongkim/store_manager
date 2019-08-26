@@ -75,7 +75,7 @@ class ContractPresenter extends Presenter
                 "sortable" => true,
                 "title" => trans('admin/contract/general.images'),
                 "visible" => true,
-                "formatter" => "imagesFormatter"
+                "formatter" => "imagessFormatter"
             ],[
                 "field" => "note",
                 "searchable" => true,

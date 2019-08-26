@@ -616,7 +616,7 @@
         }
     }
 
-    function imagesFormatter(value, row) {
+    function imagessFormatter(value, row) {
         if (value) {
             var length = value.length;
             var images = '<a href="/images' + value[0] + '" data-fancybox="mygallery_'+row.id+'" ><img src="/images' + value[0] + '" style="height: 40px; width: 50px;display: inline;"></a>';
