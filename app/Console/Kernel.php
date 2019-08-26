@@ -57,15 +57,18 @@ class Kernel extends ConsoleKernel
         $schedule->command('snipeit:upcoming-audits')->daily();
 
         date_default_timezone_set('Asia/Ho_Chi_Minh');
-        // $warnings = Warning::get();
-        // foreach($warnings as $warning)
-        // {
-        //     $schedule->command('warning:sendmail')->dailyAt($warning->hour_warning)->timezone('Asia/Ho_Chi_Minh');
-        //     if(\Carbon::now()->format('H:i') == $warning->hour_warning)
-        //     {
-        //         \Session::put('id', $warning->id);
-        //     } 
-        // }
+       if (class_exists('Warning'))
+        {
+            $warnings = Warning::get();
+            foreach($warnings as $warning)
+            {
+                $schedule->command('warning:sendmail')->dailyAt($warning->hour_warning)->timezone('Asia/Ho_Chi_Minh');
+                if(\Carbon::now()->format('H:i') == $warning->hour_warning)
+                {
+                    \Session::put('id', $warning->id);
+                }
+            }
+        }
     }
     //When is the warning - what time warning?
     protected function commands()
