@@ -157,7 +157,22 @@ class ContractController extends Controller
      */
     public function destroy($id)
     {
-        
+        if (is_null($contract = Contract::find($id))) {
+            return redirect()->route('contracts.index')->with('error', trans('admin/contracts/message.does_not_exist'));
+        }
+
+        $this->authorize($contract);
+        $files = File::where('fileable_id', $id)->get();
+            foreach ($files as $file) {
+                $path = public_path() . $file->url;
+                if (file_exists($path)) {
+                    Storage::delete($file->url);
+                }
+                $file->delete();
+            }
+        $contract->delete();
+        return redirect()->route('contracts.index')->with('success', trans('admin/contracts/message.update.success'));
+    }
     }
 
 }
