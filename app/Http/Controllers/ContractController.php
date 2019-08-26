@@ -173,6 +173,5 @@ class ContractController extends Controller
         $contract->delete();
         return redirect()->route('contracts.index')->with('success', trans('admin/contracts/message.update.success'));
     }
-    }
 
 }
