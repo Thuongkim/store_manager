@@ -877,7 +877,7 @@ Route::group(['prefix' => 'v1','namespace' => 'Api', 'middleware' => 'api'], fun
         ]
     ); // sales resource
 
-    Route::resource('appendixes', 'appendixesController',
+    Route::resource('appendixes', 'AppendixesController',
         [
             'names' =>
                 [
