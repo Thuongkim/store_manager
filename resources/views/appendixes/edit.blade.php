@@ -188,10 +188,10 @@
                   var ext = item.url.split('.').pop();
                   if (ext == "pdf") {
                       // thisDropzone.emit("thumbnail", mockFile, "http://" + window.location.hostname + ":" + window.location.port +"/uploads/appendixes/pdf.png");
-                      thisDropzone.emit("thumbnail", mockFile, "http://" + window.location.hostname + "/uploads/appendixes/pdf.png");
+                      thisDropzone.emit("thumbnail", mockFile, "https://" + window.location.hostname + "/uploads/appendixes/pdf.png");
                   } 
                   else {
-                  thisDropzone.emit("thumbnail", mockFile, item.url);
+                  thisDropzone.emit("thumbnail", mockFile, "https://" + window.location.hostname + '/' +item.url);
                   }
 
                   // If you use the maxFiles option, make sure you adjust it to the

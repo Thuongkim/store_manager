@@ -2,13 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\File;
 use Auth;
-use Image;
 use Response;
+use App\Models\File;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use App\Http\Requests\ImageUploadRequest;
 
 class FilesController extends Controller
 {

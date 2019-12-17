@@ -2,16 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\Contract;
-use App\Models\Customer;
-use App\Models\Categorize;
+use DB;
+use Auth;
+use Response;
 use App\Models\Sale;
 use App\Models\User;
 use App\Models\File;
-use Auth;
-use DB;
-use Response;
+use App\Models\Contract;
+use App\Models\Customer;
+use App\Models\Categorize;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class FileController extends Controller
 {
@@ -24,15 +25,15 @@ class FileController extends Controller
         // dd(1);
        if ($request->hasFile('file')) {
             $imageFiles = $request->file('file');
-            $folderDir = 'images/';
-            $destinationPath = public_path('images');
+            $folderDir = 'uploads/contract/';
+            $destinationPath = public_path('uploads/contract');
             $ext = $imageFiles->getClientOriginalExtension();
             $destinationFileName = "contract_".sha1(date('YmdHis') . str_random(30)).'.'.$ext;
             $imageFiles->move($destinationPath, $destinationFileName);
 
             // save file in database
             $file = new File;
-            $file->url = $destinationFileName;
+            $file->url = $folderDir . $destinationFileName;
             $file->user_id = Auth::user()->id;
             $file->fileable_type = "App\Models\Contract";
             $file->save();   
@@ -62,11 +63,11 @@ class FileController extends Controller
             return Response::json(['message' => 'Sorry file does not exist'], 400);
         }
  
-        $file_path = public_path('images/'.$uploaded_image->url);
+        $file_path = public_path() . $uploaded_image->url;
         // dd($file_path);
  
         if (file_exists($file_path)) {
-            unlink($file_path);
+            Storage::delete($uploaded_image->url);
         }
  
         if (!empty($uploaded_image)) {

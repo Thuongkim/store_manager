@@ -635,13 +635,13 @@
     function imagessFormatter(value, row) {
         if (value) {
             var length = value.length;
-            var images = '<a href="images/' + value[0] + '" data-fancybox="mygallery_'+row.id+'" ><img src="images/' + value[0] + '" style="height: 40px; width: 50px;display: inline;"></a>';
+            var images = '<a href="' + value[0] + '" data-fancybox="mygallery_'+row.id+'" ><img src="' + value[0] + '" style="height: 40px; width: 50px;display: inline;"></a>';
             for(i = 1; i < length; i++) {
                 var ext = value[i].split('.').pop();
                 if (ext==='pdf') {
-                   images += '<a href="images/' + value[i] + '" data-fancybox="mygallery_'+row.id+'" ><img src="images/pdf.png" style="height: 40px; width: 50px;display: none;" ></a>'; 
+                   images += '<a href="' + value[i] + '" data-fancybox="mygallery_'+row.id+'" ><img src="/uploads/contract/pdf.png" style="height: 40px; width: 50px;display: none;" ></a>'; 
                 }else{
-                images += '<a href="images/' + value[i] + '" data-fancybox="mygallery_'+row.id+'" ><img src="images/' + value[i] + '" style="height: 40px; width: 50px;display: none;" ></a>';
+                images += '<a href="' + value[i] + '" data-fancybox="mygallery_'+row.id+'" ><img src="' + value[i] + '" style="height: 40px; width: 50px;display: none;" ></a>';
             }
             }
             return images;

@@ -178,10 +178,10 @@
                   // And optionally show the thumbnail of the file
                   var ext = item.url.split('.').pop();
                   if (ext == "pdf") {
-                      thisDropzone.emit("thumbnail", mockFile, "http://" + window.location.hostname +'/images/pdf.png');
+                      thisDropzone.emit("thumbnail", mockFile, "https://" + window.location.hostname +'/uploads/contract/pdf.png');
                   } 
                   else {
-                  thisDropzone.emit("thumbnail", mockFile, "http://" + window.location.hostname +'/images/'+item.url);
+                  thisDropzone.emit("thumbnail", mockFile, "https://" + window.location.hostname + '/' +item.url);
                   }
 
                   // If you use the maxFiles option, make sure you adjust it to the
