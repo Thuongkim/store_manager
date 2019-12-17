@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\File;
 use Auth;
+use Image;
 use Response;
 use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\ImageUploadRequest;
 
 class FilesController extends Controller
 {
@@ -14,10 +16,10 @@ class FilesController extends Controller
 	{
 		if ($request->hasFile('file')) {
 			$imageFiles = $request->file('file');
-			$folderDir = "\uploads\appendixes";
-			$destinationPath = public_path() . $folderDir;
+			$folderDir = "uploads/appendixes/";
+			$destinationPath = public_path('uploads/appendixes');
 			$ext = $imageFiles->getClientOriginalExtension();
-            $destinationFileName = "\appendix-".sha1(date('YmdHis') . str_random(30)).'.'.$ext;
+            $destinationFileName = "appendix-".sha1(date('YmdHis') . str_random(30)).'.'.$ext;
 			$imageFiles->move($destinationPath, $destinationFileName);
             // save file in database
 			$file = new File;

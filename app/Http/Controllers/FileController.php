@@ -24,10 +24,10 @@ class FileController extends Controller
         // dd(1);
        if ($request->hasFile('file')) {
             $imageFiles = $request->file('file');
-            $folderDir = '\public\images';
-            $destinationPath = base_path() . $folderDir;
+            $folderDir = 'images/';
+            $destinationPath = public_path('images');
             $ext = $imageFiles->getClientOriginalExtension();
-            $destinationFileName = "\contract_".sha1(date('YmdHis') . str_random(30)).'.'.$ext;
+            $destinationFileName = "contract_".sha1(date('YmdHis') . str_random(30)).'.'.$ext;
             $imageFiles->move($destinationPath, $destinationFileName);
 
             // save file in database
@@ -62,7 +62,7 @@ class FileController extends Controller
             return Response::json(['message' => 'Sorry file does not exist'], 400);
         }
  
-        $file_path = public_path() .'\images'. $uploaded_image->url;
+        $file_path = public_path('images/'.$uploaded_image->url);
         // dd($file_path);
  
         if (file_exists($file_path)) {

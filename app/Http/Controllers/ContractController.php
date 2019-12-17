@@ -112,7 +112,7 @@ class ContractController extends Controller
             return view('contracts.edit')->with('item', $item);
         }
 
-        return redirect()->route('contracts.index');
+        return redirect()->route('contract.index');
     }
 
     /**
@@ -158,7 +158,7 @@ class ContractController extends Controller
     public function destroy($id)
     {
         if (is_null($contract = Contract::find($id))) {
-            return redirect()->route('contracts.index')->with('error', trans('admin/contracts/message.does_not_exist'));
+            return redirect()->route('contract.index')->with('error', trans('admin/contract/message.does_not_exist'));
         }
 
         $this->authorize($contract);
@@ -171,7 +171,7 @@ class ContractController extends Controller
                 $file->delete();
             }
         $contract->delete();
-        return redirect()->route('contracts.index')->with('success', trans('admin/contracts/message.update.success'));
+        return redirect()->route('contract.index')->with('success', trans('admin/contract/message.update.success'));
     }
 
 }
