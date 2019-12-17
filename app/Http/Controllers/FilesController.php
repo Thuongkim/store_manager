@@ -59,7 +59,7 @@ class FilesController extends Controller
 	public function showImages(Request $request)
 	{
 		$id = $request->id;
-		$file = File::where('fileable_id', $id)->get(['id', 'url']);
+		$file = File::where('fileable_id', $id)->where('fileable_type', 'App\Models\Appendix')->get(['id', 'url']);
 		return response()->json(['data'=>$file]);	
 	}
 

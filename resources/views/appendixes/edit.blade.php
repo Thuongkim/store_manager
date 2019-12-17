@@ -187,7 +187,8 @@
                   // And optionally show the thumbnail of the file
                   var ext = item.url.split('.').pop();
                   if (ext == "pdf") {
-                      thisDropzone.emit("thumbnail", mockFile, "http://" + window.location.hostname + ":" + window.location.port +"/uploads/appendixes/pdf.png");
+                      // thisDropzone.emit("thumbnail", mockFile, "http://" + window.location.hostname + ":" + window.location.port +"/uploads/appendixes/pdf.png");
+                      thisDropzone.emit("thumbnail", mockFile, "http://" + window.location.hostname + "/uploads/appendixes/pdf.png");
                   } 
                   else {
                   thisDropzone.emit("thumbnail", mockFile, item.url);

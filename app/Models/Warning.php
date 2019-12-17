@@ -2,20 +2,18 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-use App\Models\Traits\Searchable;
 use App\Presenters\Presentable;
+use App\Models\Traits\Searchable;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Watson\Validating\ValidatingTrait;
+use App\Http\Traits\UniqueUndeletedTrait;
 use App\Notifications\CheckinAccessoryNotification;
 use App\Notifications\CheckoutAccessoryNotification;
 
 class Warning extends Model
 {
-
-    protected $presenter = 'App\Presenters\WarningPresenter';
-    use CompanyableTrait;
-    use Loggable, Presentable;
+    use Searchable,Presentable;
 
     protected $dates = ['deleted_at', 'purchase_date'];
     protected $table = 'warnings';
@@ -32,8 +30,6 @@ class Warning extends Model
      * @var array
      */
 
-    use Searchable;
-
     protected $searchableAttributes = ['id_customer', 'name', 'created_customer_at', 'expired_at', 'status', 'duration', 'warning_before', 'hour_warning'];
 
     protected $searchableRelations = [
@@ -47,33 +43,6 @@ class Warning extends Model
     /**
     * Accessory validation rules
     */
-    public $rules = array(
-        'id_customer'           => 'required|unique|exists:customers,id',
-        'name'                  => 'required|min:1|max:255',
-        'created_customer_at'   => 'max:255',
-        'expired_at'            => 'max:255',
-        'status'                => 'max:255',
-        'duration'              => 'required|integer',
-        'warning_before'        => 'required|integer|lt:duration',
-        'hour_warning'          => 'required'
-    );
-
-
-    /**
-    * Whether the model should inject it's identifier to the unique
-    * validation rules before attempting validation. If this property
-    * is not set in the model it will default to true.
-    *
-    * @var boolean
-    */
-    protected $injectUniqueIdentifier = true;
-    use ValidatingTrait;
-
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
     protected $fillable = [
         'id',
         'id_customer',
@@ -85,6 +54,36 @@ class Warning extends Model
         'warning_before',
         'hour_warning'
     ];
+
+    protected $injectUniqueIdentifier = true;
+    use ValidatingTrait;
+    use UniqueUndeletedTrait;
+
+    public $rules = array(
+        'id_customer'           => 'required|unique|exists:customers,id',
+        'name'                  => 'required|min:1|max:255',
+        'created_customer_at'   => 'max:255',
+        'expired_at'            => 'max:255',
+        'status'                => 'max:255',
+        'duration'              => 'required|integer',
+        'warning_before'        => 'required|integer',
+        'hour_warning'          => 'required'
+    );
+
+
+    /**
+    * Whether the model should inject it's identifier to the unique
+    * validation rules before attempting validation. If this property
+    * is not set in the model it will default to true.
+    *
+    * @var boolean
+    */
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
     public function numRemaining()
     {
         $checkedout = $this->users->count();

@@ -1,6 +1,22 @@
 <?php
 
     return [
+    'categorize'            => 'Danh mục',
+    'sales'                 => 'Nhân viên bán hàng',
+    'contract'              => 'Hợp đồng',
+    'appendixes'            => 'Phụ lục hợp đồng',
+    'view_calendar'         => 'Xem lịch',
+    'select_customer'       => 'Chọn khách hàng',
+    'hour_warning'          => 'Cảnh báo trước (giờ)',
+    'warning_before'        => 'Cảnh báo trước (ngày)',
+    'created_customer_at'   => 'Ngày tạo tài khoản',
+    'expired_at'            => 'Ngày hết hạn',
+    'duration'              => 'Thời hạn',
+    'durations'             => 'Thời hạn (ngày)',
+    'warning'               => 'Cảnh báo hết hạn',
+    'warnings'               => 'Cảnh báo hết hạn',
+    'info'                  => 'Infomation',
+    'customers'             => 'Customer',
     'accessories'			=> 'Phụ kiện',
     'activated'			    => 'Kích hoạt',
     'accessory'				=> 'Phụ kiện',

@@ -2,11 +2,11 @@
 
 namespace App\Models;
 
-use App\Http\Traits\UniqueUndeletedTrait;
-use Illuminate\Database\Eloquent\Model;
+use App\Presenters\Presentable;
 use App\Models\Traits\Searchable;
 use Watson\Validating\ValidatingTrait;
-use App\Presenters\Presentable;
+use Illuminate\Database\Eloquent\Model;
+use App\Http\Traits\UniqueUndeletedTrait;
 
 class Sale extends Model
 {

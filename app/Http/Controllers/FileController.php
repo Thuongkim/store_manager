@@ -88,7 +88,7 @@ class FileController extends Controller
     public function getDropzone(Request $request)
     {
         $id = $request->id;
-        $file = File::where('fileable_id', $id)->get(['id', 'url']);
+        $file = File::where('fileable_id', $id)->where('fileable_type', 'App\Models\Contract')->get(['id', 'url']);
         return response()->json(['data'=>$file]);   
         // $contract_id = $request->id;
 
