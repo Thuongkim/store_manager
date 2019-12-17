@@ -42,7 +42,7 @@ class ContractController extends Controller
             }
             $file->delete();
         }
-        return view('contracts.edit', compact('contract'))->with('item', new Contract);
+        return view('contracts.edit')->with('item', new Contract);
     }
 
     /**
