@@ -35,9 +35,16 @@
 <!-- Duration -->
 <div class="form-group">
  <label for="duration" class="col-md-3 control-label">{{ trans('admin/contract/general.duration') }}</label>
- <div class="col-md-7 col-sm-12">
-   <input class="form-control" type="text" name="duration" id="duration" value="{{ $item->duration }}" />
-   {!! $errors->first('duration', '<span class="alert-msg"><i class="fa fa-times"></i> :message</span>') !!}
+ <div class="col-md-9 col-sm-12">
+   <div class="input-group col-md-5" style="padding-left: 0px;">
+     <input class="form-control" type="text" name="duration" id="duration" value="{{ Input::old('duration', $item->duration ) }}" />
+     <span class="input-group-addon">
+          Months
+      </span>
+    </div>
+    <div class="col-md-9" style="padding-left: 0px;">
+      {!! $errors->first('duration', '<span class="alert-msg"><i class="fa fa-times"></i> :message</span>') !!}
+    </div>
  </div>
 </div>
 
@@ -54,7 +61,7 @@
 <div class="form-group {{ $errors->has('value') ? ' has-error' : '' }}">
   <label for="value" class="col-md-3 control-label">{{ trans('admin/contract/general.value') }}</label>
   <div class="col-md-9">
-    <div class="input-group col-md-3" style="padding-left: 0px;">
+    <div class="input-group col-md-5" style="padding-left: 0px;">
       <input class="form-control" type="text" name="value" id="value" value="{{ Input::old('value', \App\Helpers\Helper::formatCurrencyOutput($item->value)) }}" />
       <span class="input-group-addon">
         VND
